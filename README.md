@@ -11,7 +11,7 @@ Add a reference to bizDataGrid.js and bizDataGrid.css files.
 
 Note: bizDataGrid.js and bizDataGrid.css along with the images folder should be in the same path. Also make sure to include jquery befere including bizDataGrid.js
 
-```javascript
+```html
     <link  href="/scripts/BizDataGrid/bizDataGrid.css" rel="stylesheet"  >
     
     <script type="text/javascript" src="/scripts/jquery-1.10.2.min.js" ></script>
