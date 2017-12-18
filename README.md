@@ -11,7 +11,7 @@ Add a reference to bizDataGrid.js and bizDataGrid.css files.
 
 Note: bizDataGrid.js and bizDataGrid.css along with the images folder should be in the same path. Also make sure to include jquery befere including bizDataGrid.js
 
-```
+```javascript
     <link  href="/scripts/BizDataGrid/bizDataGrid.css" rel="stylesheet"  >
     
     <script type="text/javascript" src="/scripts/jquery-1.10.2.min.js" ></script>
@@ -19,6 +19,29 @@ Note: bizDataGrid.js and bizDataGrid.css along with the images folder should be 
 
 ```
 
+
+## Basic Example
+
+HTML:
+
+```html
+<div  id="gridContainer">
+   <div is class="bizDataGrid" u-title="mydatagrid"  u-fillspace="true" >
+
+      <bizDataGrid-rowtemplate is u-headerheight="35px" />
+
+      </div>
+
+   </div>
+</div>
+```
+
+Javascript:
+
+```javascript 
+var dataSource = [{column1:"value1",column2:"value2"}];
+var grid = new bizDataGrid($("#gridContainer"),{dataSource:dataSource});
+```
 
 ## Authors
 
