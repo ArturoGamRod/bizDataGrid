@@ -6,7 +6,7 @@
     window.bizDataGrid = function (container, options) {
 
 
-        var $uniGrid;
+        var $bizDataGrid;
         var $template;
         var $body;
         var $header;
@@ -165,12 +165,12 @@
          
             _currentFilter = options;
 
-            if (!$uniGrid.attr("u-filterhandler")) {
+            if (!$bizDataGrid.attr("u-filterhandler")) {
                 filter(_currentFilter);
                 return;
             }
 
-            if (typeof (window[$uniGrid.attr("u-filterhandler")]) != "function") {
+            if (typeof (window[$bizDataGrid.attr("u-filterhandler")]) != "function") {
                 console.log("BizGrid: No ha establecido una funcion de filtro");
                 return;
             }
@@ -181,7 +181,7 @@
             }
 
 
-            window[$uniGrid.attr("u-filterhandler")](_currentFilter);
+            window[$bizDataGrid.attr("u-filterhandler")](_currentFilter);
           
         };
         //function getTableToExport() {
@@ -214,7 +214,7 @@
 
         //            if (index == -1) {
 
-        //                $column.text($($(table).parents(".UniGrid").find(".UniGridHeader").get(0).rows[0]).find("td").eq(index2).find(".u-headerText").eq(0).text());
+        //                $column.text($($(table).parents(".BizDataGrid").find(".BizDataGridHeader").get(0).rows[0]).find("td").eq(index2).find(".u-headerText").eq(0).text());
         //                $column.css("font-weight", "bold")
         //            }
         //            else {
@@ -268,7 +268,7 @@
 
 
         //            if (index == -1) {
-        //                $column.text($($(table).parents(".UniGrid").find(".UniGridHeader").get(0).rows[0]).find("td").eq(index2).find(".u-headerText").eq(0).text());
+        //                $column.text($($(table).parents(".BizDataGrid").find(".BizDataGridHeader").get(0).rows[0]).find("td").eq(index2).find(".u-headerText").eq(0).text());
         //                $column.css("font-weight", "bold");
         //            }
         //            else {
@@ -277,14 +277,14 @@
         //                $column.css("text-align", "left");
         //                //   $column.text($(table.rows[index]).find("td").eq(index2).find("[u-datafieldname]").eq(0).val());
 
-        //                //if ($template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath"))
-        //                //    $column.text(datos[index][$template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")][$template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath")]);
+        //                //if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath"))
+        //                //    $column.text(datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath")]);
         //                //    else
-        //                //    $column.text(datos[index][$template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")]);
+        //                //    $column.text(datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")]);
 
         //                var value = "";
-        //                var fieldValue = datos[index][$template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")];
-        //                var $control = $template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").clone();
+        //                var fieldValue = datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")];
+        //                var $control = $template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").clone();
         //                var object = datos[index];
         //                var fieldName = $control.attr("u-datafieldname");
         //                $control.attr("value", fieldValue);
@@ -325,10 +325,10 @@
 
 
 
-        //                if ($template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").get(0) && typeof (datos[index][$template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")]) == "object") {
-        //                    if (datos[index][$template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")] != null)
-        //                        if ($template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").indexOf("()") != -1) {
-        //                            if ($template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2) in datos[index][$template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")])
+        //                if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").get(0) && typeof (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")]) == "object") {
+        //                    if (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")] != null)
+        //                        if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").indexOf("()") != -1) {
+        //                            if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2) in datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")])
 
 
         //                                var converterHandler = window[$control.attr("u-valueconverterhandler")];
@@ -468,8 +468,8 @@
 
 
                     var value = "";
-                    var fieldValue = datos[index][$template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")];
-                    var $control = $template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").clone();
+                    var fieldValue = datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")];
+                    var $control = $template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").clone();
                     var object = datos[index];
                     var fieldName = $control.attr("u-datafieldname");
                     $control.attr("value", fieldValue);
@@ -510,10 +510,10 @@
 
 
 
-                    if ($template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").get(0) && typeof (datos[index][$template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")]) == "object") {
-                        if (datos[index][$template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")] != null)
-                            if ($template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").indexOf("()") != -1) {
-                                if ($template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2) in datos[index][$template.find("UniGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")])
+                    if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").get(0) && typeof (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")]) == "object") {
+                        if (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")] != null)
+                            if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").indexOf("()") != -1) {
+                                if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2) in datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")])
 
 
                                     var converterHandler = window[$control.attr("u-valueconverterhandler")];
@@ -614,7 +614,7 @@
                     if (value == null)
                         value = "";
 
-                    dataPresentacionItem[$template.find("UniGrid-ColumnTemplate").eq(index2).attr("u-headername") || fieldName] = value;
+                    dataPresentacionItem[$template.find("BizDataGrid-ColumnTemplate").eq(index2).attr("u-headername") || fieldName] = value;
 
                 }
 
@@ -1173,12 +1173,12 @@
 
 
 
-                if (typeof (window[$uniGrid.attr("u-valueConverterhandler")]) == "function") {
+                if (typeof (window[$bizDataGrid.attr("u-valueConverterhandler")]) == "function") {
 
 
                     //v3
                     var args = { fieldName: fieldName, value: object["_" + fieldName], valueToShow: undefined, lastValue: $control.get(0).lastValue, lastValueToShow: $control.get(0).lastValueToShow, objectData: $control.parents("tr").get(0).dataSource }
-                    window[$uniGrid.attr("u-valueConverterhandler")]($control.get(0), args);
+                    window[$bizDataGrid.attr("u-valueConverterhandler")]($control.get(0), args);
 
 
                     var valToAssign = typeof (args.value) == "undefined" ? object["_" + fieldName] : args.value;
@@ -1238,9 +1238,9 @@
                 $body.find("tr").remove();
                 _removedRows = [];
 
-                //if (typeof ($uniGrid.attr("u-paginationhandler")) != "undefined")
+                //if (typeof ($bizDataGrid.attr("u-paginationhandler")) != "undefined")
                 //    setPage(_currentPage);
-                if (typeof ($pager) != "undefined" && _dataSource != null && typeof ($uniGrid.attr("u-paginationhandler")) == "undefined") {
+                if (typeof ($pager) != "undefined" && _dataSource != null && typeof ($bizDataGrid.attr("u-paginationhandler")) == "undefined") {
 
 
                     _dataSource = source;
@@ -1561,9 +1561,9 @@
 
                 var myWidth = 0;
 
-                if ($template.find("unigrid-columntemplate").eq(x).attr("u-width")) {
+                if ($template.find("bizdatagrid-columntemplate").eq(x).attr("u-width")) {
 
-                    myWidth = $template.find("unigrid-columntemplate").eq(x).attr("u-width");
+                    myWidth = $template.find("bizdatagrid-columntemplate").eq(x).attr("u-width");
 
                 }
 
@@ -1604,7 +1604,7 @@
 
 
 
-                columnsCSS += "[u-id='" + $uniGrid.attr("u-id") + "'] .UniGridBody td:nth-child(" + (x + 1) + ") , [u-id='" + $uniGrid.attr("u-id") + "'] .UniGridHeader td:nth-child(" + (x + 1) + "){";
+                columnsCSS += "[u-id='" + $bizDataGrid.attr("u-id") + "'] .BizDataGridBody td:nth-child(" + (x + 1) + ") , [u-id='" + $bizDataGrid.attr("u-id") + "'] .BizDataGridHeader td:nth-child(" + (x + 1) + "){";
                 columnsCSS += "min-width:" + myWidth + ";"
 
                 columnsCSS += "max-width:" + myWidth + ";";
@@ -1616,8 +1616,8 @@
             }
 
             wrapper.remove();
-            $("#grid" + $uniGrid.attr("u-id") + "columnsWidths").remove();
-            AddStyleElement("grid" + $uniGrid.attr("u-id") + "columnsWidths", columnsCSS);
+            $("#grid" + $bizDataGrid.attr("u-id") + "columnsWidths").remove();
+            AddStyleElement("grid" + $bizDataGrid.attr("u-id") + "columnsWidths", columnsCSS);
 
 
             measureSpan.remove();
@@ -1627,7 +1627,7 @@
 
 
 
-                if ($uniGrid.attr("u-fillspace") == "true")
+                if ($bizDataGrid.attr("u-fillspace") == "true")
                     $pager.css("width", "100%");
                 else
                     $pager.width($body.outerWidth());
@@ -1642,7 +1642,7 @@
         function InicializeDataGrid(container, options) {
 
 
-            $(".UniGrid").css("visibility", "hidden");
+            $(".BizDataGrid").css("visibility", "hidden");
 
             if (typeof (options) == "object") {
                 for (var opt in options) {
@@ -1654,7 +1654,7 @@
             
                 
             $container = $(container);
-            $template = $container.find("unigrid-rowtemplate");
+            $template = $container.find("bizdatagrid-rowtemplate");
             $template.remove();
 
 
@@ -1721,17 +1721,17 @@
 
                             if (inputType == "checkbox") {
 
-                                var $templ = $("<UniGrid-ColumnTemplate u-headerName='" + displayName + "' u-canfilter='" + "true" + "' u-filterfieldname='" + columnName + "' u-cansort='true'>" +
+                                var $templ = $("<BizDataGrid-ColumnTemplate u-headerName='" + displayName + "' u-canfilter='" + "true" + "' u-filterfieldname='" + columnName + "' u-cansort='true'>" +
                         "<input type='checkbox'    u-datafieldname='" + columnName + "' u-truevalue='" + trueValue + "' u-falsevalue='" + falseValue + "'   style='text-align:left;'>" +
-                   "</UniGrid-ColumnTemplate>'");
+                   "</BizDataGrid-ColumnTemplate>'");
 
                             }
 
                             else {
 
-                                var $templ = $("<UniGrid-ColumnTemplate u-headerName='" + displayName + "' u-canfilter='" + "true" + "' u-filterfieldname='" + columnName + "' u-cansort='true'>" +
+                                var $templ = $("<BizDataGrid-ColumnTemplate u-headerName='" + displayName + "' u-canfilter='" + "true" + "' u-filterfieldname='" + columnName + "' u-cansort='true'>" +
                         "<input type='text' class='textInput'   u-datafieldname='" + columnName + "'   style='text-align:left;'>" +
-                   "</UniGrid-ColumnTemplate>'");
+                   "</BizDataGrid-ColumnTemplate>'");
 
                             }
 
@@ -1785,9 +1785,9 @@
 
                     else {
 
-                        var $templ = $("<UniGrid-ColumnTemplate u-headerName='" + column.name + "' u-canfilter='" + (column.canFilter || true) + "' u-filterfieldname='" + (column.filterFieldname || column.name) + "' u-cansort='" + (column.canSort || true) + "'>" +
+                        var $templ = $("<BizDataGrid-ColumnTemplate u-headerName='" + column.name + "' u-canfilter='" + (column.canFilter || true) + "' u-filterfieldname='" + (column.filterFieldname || column.name) + "' u-cansort='" + (column.canSort || true) + "'>" +
                            "<input type='text' class='textInput '  u-datafieldname='" + column.name + "'   style='text-align:left;'>" +
-                      "</UniGrid-ColumnTemplate>'");
+                      "</BizDataGrid-ColumnTemplate>'");
 
                         $template.append($templ)
                     }
@@ -1796,31 +1796,31 @@
             }
 
             //var containerWidth = $container.width();
-            $uniGrid = $(".UniGrid", container);
-            $uniGrid.attr("u-id", new Date().getTime());
-            $uniGrid.find("*[class*='UniGrid']").remove();
+            $bizDataGrid = $(".BizDataGrid", container);
+            $bizDataGrid.attr("u-id", new Date().getTime());
+            $bizDataGrid.find("*[class*='BizDataGrid']").remove();
 
-            $uniGrid.get(0).unigrid = that;
-            //$uniGrid.css({ width: containerWidth, minWidth: containerWidth, maxWidth: containerWidth });
+            $bizDataGrid.get(0).BizDataGrid = that;
+            //$bizDataGrid.css({ width: containerWidth, minWidth: containerWidth, maxWidth: containerWidth });
 
-            //var $BodyGrid = $(".UniGridBody", $uniGrid);
-            //var $HeaderGrid = $(".UniGridHeader", $uniGrid);
+            //var $BodyGrid = $(".BizDataGridBody", $bizDataGrid);
+            //var $HeaderGrid = $(".BizDataGridHeader", $bizDataGrid);
 
 
             if (_showRowNumber == true) {
 
-                $template.prepend($('<UniGrid-ColumnTemplate u-headerName="No." >' +
-                        '<input  type="text"  class="textInput tbRowNumber"  readonly="true" style="text-align:center"></UniGrid-ColumnTemplate>'));
-                //$template.prepend($('<UniGrid-ColumnTemplate u-headerName="Válido" >' +
-                //        '<input  type="text"  class="textInput tbRowNumber"  readonly="true" style="text-align:center"></UniGrid-ColumnTemplate>'));
+                $template.prepend($('<BizDataGrid-ColumnTemplate u-headerName="No." >' +
+                        '<input  type="text"  class="textInput tbRowNumber"  readonly="true" style="text-align:center"></BizDataGrid-ColumnTemplate>'));
+                //$template.prepend($('<BizDataGrid-ColumnTemplate u-headerName="Válido" >' +
+                //        '<input  type="text"  class="textInput tbRowNumber"  readonly="true" style="text-align:center"></BizDataGrid-ColumnTemplate>'));
 
             }
 
 
-            if ($uniGrid.attr("u-fillspace") == "true") {
+            if ($bizDataGrid.attr("u-fillspace") == "true") {
 
-                $template.append($('<UniGrid-ColumnTemplate u-headerName="" style="width:100%;min-width:100%;max-width:100%" u-canfilter="false" u-cansort="false" >' +
-                        '</UniGrid-ColumnTemplate>'));
+                $template.append($('<BizDataGrid-ColumnTemplate u-headerName="" style="width:100%;min-width:100%;max-width:100%" u-canfilter="false" u-cansort="false" >' +
+                        '</BizDataGrid-ColumnTemplate>'));
 
             }
 
@@ -1831,7 +1831,7 @@
             //AddExcelExport();
             //AddFastAccessKeys();
 
-            //if (typeof (window[$uniGrid.attr("u-paginationhandler")]) == "function") {
+            //if (typeof (window[$bizDataGrid.attr("u-paginationhandler")]) == "function") {
 
 
             //    _currentFilter = { fieldName: null, filterValue: null, direction: null, pageNumber: 1, pageSize: _paginationSize };
@@ -1839,12 +1839,12 @@
 
             //}
 
-            //else if (typeof (window[$uniGrid.attr("u-filterhandler")]) == "function" && typeof (window[$uniGrid.attr("u-paginationhandler")]) != "function") {
+            //else if (typeof (window[$bizDataGrid.attr("u-filterhandler")]) == "function" && typeof (window[$bizDataGrid.attr("u-paginationhandler")]) != "function") {
 
 
             //    _currentFilter = { fieldName: null, filterValue: null, direction: null, pageNumber: 1, pageSize: _paginationSize };
             //    //setPage(1);
-            //    (window[$uniGrid.attr("u-filterhandler")])(_currentFilter);
+            //    (window[$bizDataGrid.attr("u-filterhandler")])(_currentFilter);
 
             //}
 
@@ -1904,7 +1904,7 @@
             if (options.dataSource)
                 that.dataSource(options.dataSource);
 
-            $(".UniGrid").css("visibility", "visible");
+            $(".BizDataGrid").css("visibility", "visible");
 
 
 
@@ -1913,7 +1913,7 @@
         function AddExcelExport() {
 
             var btnExport = $("<div unselectable='on' style='cursor:pointer' href='javascript:;' onclick='exportarExcel();' class='ms-cui-ctl-large ' aria-describedby='Ribbon.List.Actions.ExportToSpreadsheet_ToolTip' mscui:controltype='Button' role='button' id='Ribbon.List.Actions.ExportToSpreadsheet-Large'><span unselectable='on' class='ms-cui-ctl-largeIconContainer'><span unselectable='on' class=' ms-cui-img-32by32 ms-cui-img-cont-float'><img unselectable='on' alt='' src='/_layouts/15/3082/images/formatmap32x32.png?rev=23' style='top: -239px; left: -307px;'></span></span><span unselectable='on' class='ms-cui-ctl-largelabel'>Exportar a<br>Excel</span></div>");
-            $uniGrid.find(".u-header-title").append(btnExport);
+            $bizDataGrid.find(".u-header-title").append(btnExport);
             btnExport.click(that.exportToExcel);
 
         }
@@ -1937,7 +1937,7 @@
 
         function validateGrid() {
 
-            $("[u-validators]", $uniGrid).each(function (index, value) {
+            $("[u-validators]", $bizDataGrid).each(function (index, value) {
 
                 validateData(value);
             });
@@ -2005,14 +2005,14 @@
 
                         if ($(input).val().trim() == "") {
 
-                            AddError(input, $uniGrid.find("u-message[u-validatorname = 'requiered']").text().trim());
+                            AddError(input, $bizDataGrid.find("u-message[u-validatorname = 'requiered']").text().trim());
 
                         }
 
                         else {
 
 
-                            removeError(input, $uniGrid.find("u-message[u-validatorname = 'requiered']").text().trim());
+                            removeError(input, $bizDataGrid.find("u-message[u-validatorname = 'requiered']").text().trim());
 
 
                         }
@@ -2024,14 +2024,14 @@
 
                         if (!IsNumeric($(input).val())) {
 
-                            AddError(input, $uniGrid.find("u-message[u-validatorname = 'number']").text().trim());
+                            AddError(input, $bizDataGrid.find("u-message[u-validatorname = 'number']").text().trim());
 
                         }
 
                         else {
 
 
-                            removeError(input, $uniGrid.find("u-message[u-validatorname = 'number']").text().trim());
+                            removeError(input, $bizDataGrid.find("u-message[u-validatorname = 'number']").text().trim());
 
 
 
@@ -2045,11 +2045,11 @@
                         if (($(input).val().trim().indexOf("$") == 0)) {
 
                             if (!IsPriceNumber($(input).val().trim().split("$")[1]))
-                                AddError(input, $uniGrid.find("u-message[u-validatorname = 'price']").text().trim());
+                                AddError(input, $bizDataGrid.find("u-message[u-validatorname = 'price']").text().trim());
 
 
 
-                            removeError(input, $uniGrid.find("u-message[u-validatorname = 'price']").text().trim());
+                            removeError(input, $bizDataGrid.find("u-message[u-validatorname = 'price']").text().trim());
 
 
 
@@ -2057,11 +2057,11 @@
 
                         else {
                             if (!IsPriceNumber($(input).val().trim()))
-                                AddError(input, $uniGrid.find("u-message[u-validatorname = 'price']").text().trim());
+                                AddError(input, $bizDataGrid.find("u-message[u-validatorname = 'price']").text().trim());
                             else {
 
 
-                                removeError(input, $uniGrid.find("u-message[u-validatorname = 'price']").text().trim());
+                                removeError(input, $bizDataGrid.find("u-message[u-validatorname = 'price']").text().trim());
 
                             }
 
@@ -2076,13 +2076,13 @@
                             var result = window[customValidators[y]](input);
 
                             if (result == false) {
-                                AddError(input, $uniGrid.find("u-message[u-validatorname = '" + customValidators[y] + "']").text().trim());
+                                AddError(input, $bizDataGrid.find("u-message[u-validatorname = '" + customValidators[y] + "']").text().trim());
                             }
 
                             else {
 
 
-                                removeError(input, $uniGrid.find("u-message[u-validatorname = '" + customValidators[y] + "']").text().trim());
+                                removeError(input, $bizDataGrid.find("u-message[u-validatorname = '" + customValidators[y] + "']").text().trim());
 
                             }
                         }
@@ -2211,24 +2211,24 @@
         function AddTitle() {
 
             var $title = $("<div class='u-header-title'></div>")
-            $title.text(_options.title || $uniGrid.attr("u-title") || "");
+            $title.text(_options.title || $bizDataGrid.attr("u-title") || "");
 
-            if ($uniGrid.find("u-titletemplate").length > 0) {
-                var $title = $($uniGrid.find("u-titletemplate").changeElementType("div")[0]);
+            if ($bizDataGrid.find("u-titletemplate").length > 0) {
+                var $title = $($bizDataGrid.find("u-titletemplate").changeElementType("div")[0]);
                 $title.addClass("u-header-title");
             }
-            $uniGrid.append($title);
+            $bizDataGrid.append($title);
 
         }
 
         function AddHeader() {
 
-            $header = $("<table  class='UniGridHeader'>");
+            $header = $("<table  class='BizDataGridHeader'>");
 
             var $headerRow = $("<tr></tr>");
             $headerRow.css("height", $template.attr("u-headerheight"));
 
-            $template.find("unigrid-columntemplate").each(function (index, value) {
+            $template.find("bizdatagrid-columntemplate").each(function (index, value) {
 
                 var $headerColumnTemplate = $(value);
 
@@ -2282,9 +2282,9 @@
                     $headerColumnTemplate.find("u-filtercollection").remove();
 
 
-                    if (typeof ($uniGrid.attr("u-filterhandler")) != "undefined") {
+                    if (typeof ($bizDataGrid.attr("u-filterhandler")) != "undefined") {
 
-                        if ($uniGrid.attr("u-filterhandler") in window) {
+                        if ($bizDataGrid.attr("u-filterhandler") in window) {
 
                             $filterBox.on("keyup", function (e) {
 
@@ -2330,9 +2330,9 @@
                                         window[$template.find("[u-filterfieldname='" + args.fieldName + "']").attr("u-filterhandler")](args);
                                         _lastFilter = window[$template.find("[u-filterfieldname='" + args.fieldName + "']").attr("u-filterhandler")];
                                     }
-                                    else if (typeof (window[$uniGrid.attr("u-filterhandler")]) == "function") {
-                                        window[$uniGrid.attr("u-filterhandler")](args);
-                                        _lastFilter = window[$uniGrid.attr("u-filterhandler")];
+                                    else if (typeof (window[$bizDataGrid.attr("u-filterhandler")]) == "function") {
+                                        window[$bizDataGrid.attr("u-filterhandler")](args);
+                                        _lastFilter = window[$bizDataGrid.attr("u-filterhandler")];
                                     }
                                     else
                                         filter(args);
@@ -2350,7 +2350,7 @@
                             });
                         }
 
-                        else if ($uniGrid.attr("u-filterhandler") == "local"){
+                        else if ($bizDataGrid.attr("u-filterhandler") == "local"){
 
                                 $filterBox.on("keyup", function (e) {
                                 code = e.keyCode || e.which;
@@ -2364,7 +2364,7 @@
                                     var args = { fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: 1, pageSize: _paginationSize };
                                     _currentFilter = cloneObj(args);
 
-                                    if ($uniGrid.attr("u-filterhandler") == "local")
+                                    if ($bizDataGrid.attr("u-filterhandler") == "local")
                                         filter(args);
 
                                     var imagesPath = $("script[src*='bizDataGrid.js']").attr("src").split('bizDataGrid.js')[0] + "images/";
@@ -2558,9 +2558,9 @@
                         });
                     }
 
-                    else if (typeof ($uniGrid.attr("u-filterhandler")) != "undefined") {
+                    else if (typeof ($bizDataGrid.attr("u-filterhandler")) != "undefined") {
 
-                        if (typeof (window[$uniGrid.attr("u-filterhandler")]) == "function") {
+                        if (typeof (window[$bizDataGrid.attr("u-filterhandler")]) == "function") {
 
                             $upArrow.on("click", function () {
 
@@ -2577,7 +2577,7 @@
                                 var args = { fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: _currentPage, pageSize: _paginationSize };
                                 _currentFilter = cloneObj(args);
 
-                                window[$uniGrid.attr("u-filterhandler")](args);
+                                window[$bizDataGrid.attr("u-filterhandler")](args);
                                 $arrows.get(0).currentDirection = "asc"
                                 //$(this).hide();
                             });
@@ -2595,7 +2595,7 @@
                                 var args = { fieldName: $headerColumnTemplate.attr("u-filterfieldname"), filterValue: filterValue, direction: direction, pageNumber: _currentPage, pageSize: _paginationSize };
                                 _currentFilter = cloneObj(args);
 
-                                window[$uniGrid.attr("u-filterhandler")](args);
+                                window[$bizDataGrid.attr("u-filterhandler")](args);
                                 $arrows.get(0).currentDirection = "desc";
                                 //$(this).hide();
 
@@ -2760,10 +2760,10 @@
 
 
 
-            $uniGrid.on("click", ".u-cancelFilter", function () {
+            $bizDataGrid.on("click", ".u-cancelFilter", function () {
 
-                var $headerColumnTemplate = $template.find("unigrid-columntemplate").eq($(this).parents("td").index());
-                var filterHandlerName = $uniGrid.attr("u-filterhandler") || $headerColumnTemplate.attr("u-filterhandler");
+                var $headerColumnTemplate = $template.find("bizdatagrid-columntemplate").eq($(this).parents("td").index());
+                var filterHandlerName = $bizDataGrid.attr("u-filterhandler") || $headerColumnTemplate.attr("u-filterhandler");
                 if (filterHandlerName) {
 
                     var fieldName = $headerColumnTemplate.find("input").attr("u-datafieldname");
@@ -2809,7 +2809,7 @@
 
 
             $header.append($headerRow);
-            $uniGrid.append($header);
+            $bizDataGrid.append($header);
 
         }
 
@@ -2819,10 +2819,10 @@
             if (_canFilterAndSort == false) {
                 return;
             }
-            //if (typeof ($uniGrid.attr("u-paginationhandler")) != "undefined")
+            //if (typeof ($bizDataGrid.attr("u-paginationhandler")) != "undefined")
             //    setPage(_currentPage);
 
-            if (typeof ($pager) != "undefined" && _dataSource != null && typeof ($uniGrid.attr("u-paginationhandler")) == "undefined") {
+            if (typeof ($pager) != "undefined" && _dataSource != null && typeof ($bizDataGrid.attr("u-paginationhandler")) == "undefined") {
 
                 $body.find("tr").remove();
                 _removedRows = [];
@@ -2926,7 +2926,7 @@
 
 
 
-            $body = $('<table class="UniGridBody" />');
+            $body = $('<table class="BizDataGridBody" />');
 
             //var $headerRow = $("<tr></tr>");
             //$headerRow.css("height", $template.attr("u-headerheight"));
@@ -2934,7 +2934,7 @@
             //$body.css("margin-top", "-" + parseInt($header.find("tr").height(), 10) + "px");
             $body.css("max-height", _options.maxHeight);
 
-            //$template.find("unigrid-columntemplate").each(function (index, value) {
+            //$template.find("bizdatagrid-columntemplate").each(function (index, value) {
 
             //    var $headerColumnTemplate = $(value);
             //    var $headerColumn = $("<td/>");
@@ -2948,7 +2948,7 @@
             //});
 
             //$body.append($headerRow);
-            $uniGrid.append($body);
+            $bizDataGrid.append($body);
 
             $body.scroll(onScroll);
             $body.on("keydown", onRowKeyUp);
@@ -2979,20 +2979,20 @@
             if (that.totalPages() == null)
                 $buttonFin.hide();
 
-            if ($uniGrid.attr("u-fillspace") == "true")
+            if ($bizDataGrid.attr("u-fillspace") == "true")
                 $pager.css("width", "100%");
             else
                 $pager.width($header.width());
 
 
             $pager.append($buttonContainer);
-            $uniGrid.append($pager);
+            $bizDataGrid.append($pager);
             _currentPage = 1;
             AddRegisters();
 
 
-            if (typeof ($uniGrid.attr("u-totalpages")) != "undefined")
-                _userDefinedTotalPages = $uniGrid.attr("u-totalpages");
+            if (typeof ($bizDataGrid.attr("u-totalpages")) != "undefined")
+                _userDefinedTotalPages = $bizDataGrid.attr("u-totalpages");
 
         }
 
@@ -3015,7 +3015,7 @@
 
             $registers.append($registersOptions.on("change", onRegistersChanged));
 
-            $(".u-header-title", $uniGrid).append($registers);
+            $(".u-header-title", $bizDataGrid).append($registers);
 
         }
 
@@ -3084,7 +3084,7 @@
         function getTotalPages() {
 
 
-            if (_userDefinedTotalPages == null && typeof ($uniGrid.attr("u-paginationhandler")) == "undefined") {
+            if (_userDefinedTotalPages == null && typeof ($bizDataGrid.attr("u-paginationhandler")) == "undefined") {
 
                 var totalPages = parseInt(_totalItems / _paginationSize, 10);
 
@@ -3094,7 +3094,7 @@
                 return totalPages;
             }
 
-            else if (_userDefinedTotalPages == null && typeof ($uniGrid.attr("u-paginationhandler") != "undefined"))
+            else if (_userDefinedTotalPages == null && typeof ($bizDataGrid.attr("u-paginationhandler") != "undefined"))
                 return null;
             else if (_userDefinedTotalPages != null)
                 return _userDefinedTotalPages
@@ -3116,7 +3116,7 @@
             _currentPage = page;
             $pager.find(".u-currentPage").text(page);
 
-            if (typeof (window[$uniGrid.attr("u-paginationhandler")]) == "function") {
+            if (typeof (window[$bizDataGrid.attr("u-paginationhandler")]) == "function") {
 
 
 
@@ -3126,13 +3126,13 @@
                     var filterValue = _currentFilter.filterValue
                     var direction = _currentFilter.direction;
 
-                    window[$($uniGrid).attr("u-paginationhandler")]({ fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: page, pageSize: _paginationSize,filters:_currentFilter.filters })
+                    window[$($bizDataGrid).attr("u-paginationhandler")]({ fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: page, pageSize: _paginationSize,filters:_currentFilter.filters })
                 }
 
 
                 else {
 
-                    window[$($uniGrid).attr("u-paginationhandler")]({ fieldName: null, filterValue: null, direction: null, pageNumber: page, pageSize: _paginationSize })
+                    window[$($bizDataGrid).attr("u-paginationhandler")]({ fieldName: null, filterValue: null, direction: null, pageNumber: page, pageSize: _paginationSize })
 
                 }
 
@@ -3159,7 +3159,7 @@
             var dataPage = [];
             var data;
 
-            if ((typeof (window[$uniGrid.attr("u-filterhandler")]) != "function" && !!_currentFilter && !!_currentFilter.fieldName && typeof (window[$template.find("[u-filterfieldname='" + _currentFilter.fieldName + "']").attr("u-filterhandler")]) != "function") || !!_currentFilter && !!_currentFilter.fieldName && $template.find("[u-filterfieldname='" + _currentFilter.fieldName + "']").attr("u-filterhandler") == "local")
+            if ((typeof (window[$bizDataGrid.attr("u-filterhandler")]) != "function" && !!_currentFilter && !!_currentFilter.fieldName && typeof (window[$template.find("[u-filterfieldname='" + _currentFilter.fieldName + "']").attr("u-filterhandler")]) != "function") || !!_currentFilter && !!_currentFilter.fieldName && $template.find("[u-filterfieldname='" + _currentFilter.fieldName + "']").attr("u-filterhandler") == "local")
                 data = filterData(_currentFilter);
             else
                 data = _dataSource;
@@ -3344,7 +3344,7 @@
 
             var row = $template.clone().css("display", "table-row");
             row = $(row.changeElementType("tr"));
-            columns = row.find("unigrid-columntemplate").changeElementType("td");
+            columns = row.find("bizdatagrid-columntemplate").changeElementType("td");
 
             //$(columns).find("[u-datafieldname='META']")
 
@@ -3475,7 +3475,7 @@
                 var value = dataFieldInputs[index];
                 var $control = $(value);
 
-                if ($uniGrid.attr("u-readonly") == "true")
+                if ($bizDataGrid.attr("u-readonly") == "true")
                     if ($control.attr("u-readonly") != "false")
                         $control.attr("disabled", "disabled");
 

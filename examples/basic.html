@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+
+
+
+
+    <link  href="../bizDataGrid.css" rel="stylesheet"  >
+
+
+  </head>
+
+  <body>
+
+   
+    
+    <div  id="gridContainer">
+      <div is class="bizDataGrid" u-title="mydatagrid"  u-fillspace="true" >
+
+         <bizDataGrid-rowtemplate is u-headerheight="35px" />
+
+         </div>
+
+      </div>
+</div>
+
+   
+<script type="text/javascript" src="../lib/jquery-1.10.2.min.js"  ></script>
+<script type="text/javascript" src="../bizDataGrid.js"></script>
+<script type="text/javascript">
+
+  
+  var dataSource = [{field1:"a",field2:"b"},{field1:"c",field2:"d"},{field1:"a",field2:"b"}];
+  grid = new bizDataGrid($("#gridContainer"),{dataSource:dataSource});
+
+
+</script>
+
+  </body>
+
+</html>
