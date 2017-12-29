@@ -2999,7 +2999,7 @@
         function AddRegisters() {
 
             var $registers = $("<div class='u-registers'/>");
-            $registers.append($("<span class='u-registersLbl'>Registros</span>"));
+            $registers.append($("<span class='u-registersLbl'>Rows</span>"));
 
             var $registersOptions = $("<select class='u-registersInput' ></select>");
             $registersOptions.append($("<option value='5'>5</option>"));

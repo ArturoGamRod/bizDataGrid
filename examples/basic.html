@@ -9,6 +9,14 @@
 
     <link  href="../bizDataGrid.css" rel="stylesheet"  >
 
+    <style>
+       .u-header-title{
+
+            color:white;
+            font-size: 25px;
+
+       }
+    </style>
 
   </head>
 
@@ -17,7 +25,7 @@
    
     
     <div  id="gridContainer">
-      <div is class="bizDataGrid" u-title="mydatagrid"  u-fillspace="true" >
+      <div is class="bizDataGrid" u-title="Products"  u-fillspace="true" >
 
          <bizDataGrid-rowtemplate is u-headerheight="35px" />
 
@@ -32,7 +40,12 @@
 <script type="text/javascript">
 
   
-  var dataSource = [{field1:"a",field2:"b"},{field1:"c",field2:"d"},{field1:"a",field2:"b"}];
+  var dataSource = [{Product:"Laptop",Brand:"ASUS",Model:"X-1",Price:"9,999.00"},
+  {Product:"Laptop",Brand:"Samsung",Model:"S-2",Price:"8,199.00"},
+  {Product:"Hard Disk Drive",Brand:"Seagate",Model:"ST10000NE0004",Price:"399.00"},
+  {Product:"Motherboard",Brand:"Gygabyte",Model:"Z370",Price:"199.00"}
+
+];
   grid = new bizDataGrid($("#gridContainer"),{dataSource:dataSource});
 
 
