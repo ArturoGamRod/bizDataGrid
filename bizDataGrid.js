@@ -109,13 +109,13 @@
                 _canFilterAndSort = boolean;
 
                 if (boolean == false) {
-                    $header.find(".u-upArrow").hide();
-                    $header.find(".u-downArrow").hide();
-                    $header.find(".u-cancelFilter").hide();
+                    $header.find(".bizdatagrid-upArrow").hide();
+                    $header.find(".bizdatagrid-downArrow").hide();
+                    $header.find(".bizdatagrid-cancelFilter").hide();
                 }
                 else {
-                    $header.find(".u-upArrow").show();
-                    $header.find(".u-downArrow").show();
+                    $header.find(".bizdatagrid-upArrow").show();
+                    $header.find(".bizdatagrid-downArrow").show();
                 }
             }
 
@@ -165,23 +165,23 @@
          
             _currentFilter = options;
 
-            if (!$bizDataGrid.attr("u-filterhandler")) {
+            if (!$bizDataGrid.attr("bizdatagrid-filterhandler")) {
                 filter(_currentFilter);
                 return;
             }
 
-            if (typeof (window[$bizDataGrid.attr("u-filterhandler")]) != "function") {
+            if (typeof (window[$bizDataGrid.attr("bizdatagrid-filterhandler")]) != "function") {
                 console.log("BizGrid: No ha establecido una funcion de filtro");
                 return;
             }
 
 
             if (_currentFilter.filterValue == null) {
-                $(".u-cancelFilter").hide();
+                $(".bizdatagrid-cancelFilter").hide();
             }
 
 
-            window[$bizDataGrid.attr("u-filterhandler")](_currentFilter);
+            window[$bizDataGrid.attr("bizdatagrid-filterhandler")](_currentFilter);
           
         };
         //function getTableToExport() {
@@ -214,11 +214,11 @@
 
         //            if (index == -1) {
 
-        //                $column.text($($(table).parents(".BizDataGrid").find(".BizDataGridHeader").get(0).rows[0]).find("td").eq(index2).find(".u-headerText").eq(0).text());
+        //                $column.text($($(table).parents(".BizDataGrid").find(".BizDataGridHeader").get(0).rows[0]).find("td").eq(index2).find(".bizdatagrid-headerText").eq(0).text());
         //                $column.css("font-weight", "bold")
         //            }
         //            else {
-        //                $column.text($(table.rows[index]).find("td").eq(index2).find("[u-datafieldname]").eq(0).val());
+        //                $column.text($(table.rows[index]).find("td").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).val());
 
         //            }
         //            $row.append($column);
@@ -268,33 +268,33 @@
 
 
         //            if (index == -1) {
-        //                $column.text($($(table).parents(".BizDataGrid").find(".BizDataGridHeader").get(0).rows[0]).find("td").eq(index2).find(".u-headerText").eq(0).text());
+        //                $column.text($($(table).parents(".BizDataGrid").find(".BizDataGridHeader").get(0).rows[0]).find("td").eq(index2).find(".bizdatagrid-headerText").eq(0).text());
         //                $column.css("font-weight", "bold");
         //            }
         //            else {
 
 
         //                $column.css("text-align", "left");
-        //                //   $column.text($(table.rows[index]).find("td").eq(index2).find("[u-datafieldname]").eq(0).val());
+        //                //   $column.text($(table.rows[index]).find("td").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).val());
 
-        //                //if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath"))
-        //                //    $column.text(datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath")]);
+        //                //if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldpath]").attr("bizdatagrid-datafieldpath"))
+        //                //    $column.text(datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).attr("bizdatagrid-datafieldname")][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldpath]").attr("bizdatagrid-datafieldpath")]);
         //                //    else
-        //                //    $column.text(datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")]);
+        //                //    $column.text(datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).attr("bizdatagrid-datafieldname")]);
 
         //                var value = "";
-        //                var fieldValue = datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")];
-        //                var $control = $template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").clone();
+        //                var fieldValue = datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).attr("bizdatagrid-datafieldname")];
+        //                var $control = $template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").clone();
         //                var object = datos[index];
-        //                var fieldName = $control.attr("u-datafieldname");
+        //                var fieldName = $control.attr("bizdatagrid-datafieldname");
         //                $control.attr("value", fieldValue);
         //                $control.val(fieldValue);
 
 
-        //                if ($control.attr("u-datasource") && $control.attr("u-datasource").indexOf("this") != -1) {
+        //                if ($control.attr("bizdatagrid-datasource") && $control.attr("bizdatagrid-datasource").indexOf("this") != -1) {
 
 
-        //                    var dataSource = object[$control.attr("u-dataSource").split("this.")[1]];
+        //                    var dataSource = object[$control.attr("bizdatagrid-dataSource").split("this.")[1]];
         //                    if (dataSource instanceof Array) {
 
         //                        for (var x = 0; x < dataSource.length; x++)
@@ -309,7 +309,7 @@
         //                else {
 
 
-        //                    var dataSource = window[$control.attr("u-datasource")];
+        //                    var dataSource = window[$control.attr("bizdatagrid-datasource")];
         //                    if (dataSource instanceof Array) {
 
         //                        for (var x = 0; x < dataSource.length; x++)
@@ -325,19 +325,19 @@
 
 
 
-        //                if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").get(0) && typeof (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")]) == "object") {
-        //                    if (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")] != null)
-        //                        if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").indexOf("()") != -1) {
-        //                            if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2) in datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")])
+        //                if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldpath]").get(0) && typeof (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).attr("bizdatagrid-datafieldname")]) == "object") {
+        //                    if (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).attr("bizdatagrid-datafieldname")] != null)
+        //                        if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldpath]").attr("bizdatagrid-datafieldpath").indexOf("()") != -1) {
+        //                            if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldpath]").attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2) in datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).attr("bizdatagrid-datafieldname")])
 
 
-        //                                var converterHandler = window[$control.attr("u-valueconverterhandler")];
+        //                                var converterHandler = window[$control.attr("bizdatagrid-valueconverterhandler")];
         //                            if (typeof (converterHandler) != "undefined") {
 
         //                                if (typeof (converterHandler) == "function") {
 
 
-        //                                    var val = fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]();
+        //                                    var val = fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]();
         //                                    var args = { value: val, valueToShow: val, lastValue: null, lastValueToShow: null, objectData: _dataSource }
         //                                    converterHandler($control.get(0), args);
         //                                    value = args.valueToShow;
@@ -345,7 +345,7 @@
         //                                    //$control.get(0).lastValueToShow = args.valueToShow;
 
         //                                    // var data = $control.parents("tr").dataSource;
-        //                                    //dataSource[$control.attr("u-datafieldname")] = args.value;
+        //                                    //dataSource[$control.attr("bizdatagrid-datafieldname")] = args.value;
         //                                    //$control.attr("value", args.value);
         //                                    //$control.val(args.valueToShow);
 
@@ -356,32 +356,32 @@
         //                            else {
 
 
-        //                                value = fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]();
+        //                                value = fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]();
 
-        //                                //$(this).parents("tr").get(0).dataSource[$(this).attr("u-datafieldname")] 
+        //                                //$(this).parents("tr").get(0).dataSource[$(this).attr("bizdatagrid-datafieldname")] 
         //                            }
 
-        //                            //$control.attr("value", fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]());
-        //                            //$control.val(fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]());
+        //                            //$control.attr("value", fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]());
+        //                            //$control.val(fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]());
         //                            //$control.change();
 
         //                        }
         //                        else {
-        //                            if ($control.attr("u-datafieldpath") in fieldValue) {
+        //                            if ($control.attr("bizdatagrid-datafieldpath") in fieldValue) {
 
 
-        //                                var converterHandler = window[$control.attr("u-valueconverterhandler")];
+        //                                var converterHandler = window[$control.attr("bizdatagrid-valueconverterhandler")];
         //                                if (typeof (converterHandler) != "undefined") {
 
         //                                    if (typeof (converterHandler) == "function") {
 
-        //                                        var val = fieldValue[$control.attr("u-datafieldpath")];
+        //                                        var val = fieldValue[$control.attr("bizdatagrid-datafieldpath")];
         //                                        var args = { value: val, valueToShow: val, lastValue: null, lastValueToShow: null, objectData: _dataSource }
         //                                        converterHandler($control.get(0), args);
         //                                        value = args.valueToShow;
 
         //                                        // var data = $control.parents("tr").dataSource;
-        //                                        //dataSource[$control.attr("u-datafieldname")] = args.value;
+        //                                        //dataSource[$control.attr("bizdatagrid-datafieldname")] = args.value;
         //                                        value = args.valueToShow;
 
         //                                    }
@@ -389,8 +389,8 @@
 
         //                                else {
 
-        //                                    $control.attr("value", fieldValue[$control.attr("u-datafieldpath")]);
-        //                                    value = fieldValue[$control.attr("u-datafieldpath")];
+        //                                    $control.attr("value", fieldValue[$control.attr("bizdatagrid-datafieldpath")]);
+        //                                    value = fieldValue[$control.attr("bizdatagrid-datafieldpath")];
         //                                }
 
         //                            }
@@ -403,7 +403,7 @@
         //                else {
 
 
-        //                    var converterHandler = window[$control.attr("u-valueconverterhandler")];
+        //                    var converterHandler = window[$control.attr("bizdatagrid-valueconverterhandler")];
         //                    if (typeof (converterHandler) != "undefined") {
 
         //                        if (typeof (converterHandler) == "function") {
@@ -468,18 +468,18 @@
 
 
                     var value = "";
-                    var fieldValue = datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")];
-                    var $control = $template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").clone();
+                    var fieldValue = datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).attr("bizdatagrid-datafieldname")];
+                    var $control = $template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").clone();
                     var object = datos[index];
-                    var fieldName = $control.attr("u-datafieldname");
+                    var fieldName = $control.attr("bizdatagrid-datafieldname");
                     $control.attr("value", fieldValue);
                     $control.val(fieldValue);
 
 
-                    if ($control.attr("u-datasource") && $control.attr("u-datasource").indexOf("this") != -1) {
+                    if ($control.attr("bizdatagrid-datasource") && $control.attr("bizdatagrid-datasource").indexOf("this") != -1) {
 
 
-                        var dataSource = object[$control.attr("u-dataSource").split("this.")[1]];
+                        var dataSource = object[$control.attr("bizdatagrid-dataSource").split("this.")[1]];
                         if (dataSource instanceof Array) {
 
                             for (var x = 0; x < dataSource.length; x++)
@@ -494,7 +494,7 @@
                     else {
 
 
-                        var dataSource = window[$control.attr("u-datasource")];
+                        var dataSource = window[$control.attr("bizdatagrid-datasource")];
                         if (dataSource instanceof Array) {
 
                             for (var x = 0; x < dataSource.length; x++)
@@ -510,19 +510,19 @@
 
 
 
-                    if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").get(0) && typeof (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")]) == "object") {
-                        if (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")] != null)
-                            if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").indexOf("()") != -1) {
-                                if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldpath]").attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2) in datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[u-datafieldname]").eq(0).attr("u-datafieldname")])
+                    if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldpath]").get(0) && typeof (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).attr("bizdatagrid-datafieldname")]) == "object") {
+                        if (datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).attr("bizdatagrid-datafieldname")] != null)
+                            if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldpath]").attr("bizdatagrid-datafieldpath").indexOf("()") != -1) {
+                                if ($template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldpath]").attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2) in datos[index][$template.find("BizDataGrid-ColumnTemplate").eq(index2).find("[bizdatagrid-datafieldname]").eq(0).attr("bizdatagrid-datafieldname")])
 
 
-                                    var converterHandler = window[$control.attr("u-valueconverterhandler")];
+                                    var converterHandler = window[$control.attr("bizdatagrid-valueconverterhandler")];
                                 if (typeof (converterHandler) != "undefined") {
 
                                     if (typeof (converterHandler) == "function") {
 
 
-                                        var val = fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]();
+                                        var val = fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]();
                                         var args = { value: val, valueToShow: val, lastValue: null, lastValueToShow: null, objectData: _dataSource }
                                         converterHandler($control.get(0), args);
                                         value = args.valueToShow;
@@ -530,7 +530,7 @@
                                         //$control.get(0).lastValueToShow = args.valueToShow;
 
                                         // var data = $control.parents("tr").dataSource;
-                                        //dataSource[$control.attr("u-datafieldname")] = args.value;
+                                        //dataSource[$control.attr("bizdatagrid-datafieldname")] = args.value;
                                         //$control.attr("value", args.value);
                                         //$control.val(args.valueToShow);
 
@@ -541,32 +541,32 @@
                                 else {
 
 
-                                    value = fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]();
+                                    value = fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]();
 
-                                    //$(this).parents("tr").get(0).dataSource[$(this).attr("u-datafieldname")] 
+                                    //$(this).parents("tr").get(0).dataSource[$(this).attr("bizdatagrid-datafieldname")] 
                                 }
 
-                                //$control.attr("value", fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]());
-                                //$control.val(fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]());
+                                //$control.attr("value", fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]());
+                                //$control.val(fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]());
                                 //$control.change();
 
                             }
                             else {
-                                if ($control.attr("u-datafieldpath") in fieldValue) {
+                                if ($control.attr("bizdatagrid-datafieldpath") in fieldValue) {
 
 
-                                    var converterHandler = window[$control.attr("u-valueconverterhandler")];
+                                    var converterHandler = window[$control.attr("bizdatagrid-valueconverterhandler")];
                                     if (typeof (converterHandler) != "undefined") {
 
                                         if (typeof (converterHandler) == "function") {
 
-                                            var val = fieldValue[$control.attr("u-datafieldpath")];
+                                            var val = fieldValue[$control.attr("bizdatagrid-datafieldpath")];
                                             var args = { value: val, valueToShow: val, lastValue: null, lastValueToShow: null, objectData: _dataSource }
                                             converterHandler($control.get(0), args);
                                             value = args.valueToShow;
 
                                             // var data = $control.parents("tr").dataSource;
-                                            //dataSource[$control.attr("u-datafieldname")] = args.value;
+                                            //dataSource[$control.attr("bizdatagrid-datafieldname")] = args.value;
                                             value = args.valueToShow;
 
                                         }
@@ -574,8 +574,8 @@
 
                                     else {
 
-                                        $control.attr("value", fieldValue[$control.attr("u-datafieldpath")]);
-                                        value = fieldValue[$control.attr("u-datafieldpath")];
+                                        $control.attr("value", fieldValue[$control.attr("bizdatagrid-datafieldpath")]);
+                                        value = fieldValue[$control.attr("bizdatagrid-datafieldpath")];
                                     }
 
                                 }
@@ -588,7 +588,7 @@
                     else {
 
 
-                        var converterHandler = window[$control.attr("u-valueconverterhandler")];
+                        var converterHandler = window[$control.attr("bizdatagrid-valueconverterhandler")];
                         if (typeof (converterHandler) != "undefined") {
 
                             if (typeof (converterHandler) == "function") {
@@ -614,7 +614,7 @@
                     if (value == null)
                         value = "";
 
-                    dataPresentacionItem[$template.find("BizDataGrid-ColumnTemplate").eq(index2).attr("u-headername") || fieldName] = value;
+                    dataPresentacionItem[$template.find("BizDataGrid-ColumnTemplate").eq(index2).attr("bizdatagrid-headername") || fieldName] = value;
 
                 }
 
@@ -688,7 +688,7 @@
 
             });
 
-            $body.find(".u-rowinerror").removeClass("u-rowinerror");
+            $body.find(".bizdatagrid-rowinerror").removeClass("bizdatagrid-rowinerror");
             //target.__hasError = false;
             //$(target).removeClass("textInputError").addClass("textInput");
             //$(target.errorContainer).remove();
@@ -699,7 +699,7 @@
             _errors = [];
             $body.find(".textInputError").removeClass("textInputError");
 
-            var inputs = $body.find("[u-validators]");
+            var inputs = $body.find("[bizdatagrid-validators]");
 
             for (var x = 0; x < inputs.length; x++) {
 
@@ -709,7 +709,7 @@
             for (var x = 0; x < _dataSource.length; x++) {
 
                 if (_dataSource[x].error) {
-                    $(that.getRow(_dataSource[x])).addClass("u-rowinerror");
+                    $(that.getRow(_dataSource[x])).addClass("bizdatagrid-rowinerror");
                 }
             }
 
@@ -738,7 +738,7 @@
             else {
                 _userDefinedTotalPages = count;
                 if (IsNumeric(count))
-                    $pager.find(".u-endButton").show();
+                    $pager.find(".bizdatagrid-endButton").show();
             }
 
         }
@@ -897,14 +897,14 @@
                 }
 
 
-                $template.find("[u-datafieldname]").each(function (index, value) {
+                $template.find("[bizdatagrid-datafieldname]").each(function (index, value) {
 
-                    if (!($(value).attr("u-datafieldname") in objects[i])) {
+                    if (!($(value).attr("bizdatagrid-datafieldname") in objects[i])) {
 
-                        var getter = eval("(function () { return  this['_" + $(value).attr("u-datafieldname") + "']; })");
-                        var setter = eval("(function ( value ) { if(window.candebug)debugger; \nif(value != this['_" + $(value).attr("u-datafieldname") + "'] && this._state == 'unmodified'){\nthis._state = 'modified';}\nthis['_" + $(value).attr("u-datafieldname") + "'] = value;\nthis.onPropertyChanged('" + $(value).attr("u-datafieldname") + "',value,this); })");
+                        var getter = eval("(function () { return  this['_" + $(value).attr("bizdatagrid-datafieldname") + "']; })");
+                        var setter = eval("(function ( value ) { if(window.candebug)debugger; \nif(value != this['_" + $(value).attr("bizdatagrid-datafieldname") + "'] && this._state == 'unmodified'){\nthis._state = 'modified';}\nthis['_" + $(value).attr("bizdatagrid-datafieldname") + "'] = value;\nthis.onPropertyChanged('" + $(value).attr("bizdatagrid-datafieldname") + "',value,this); })");
 
-                        Object.defineProperty(newObj, $(value).attr("u-datafieldname"), {
+                        Object.defineProperty(newObj, $(value).attr("bizdatagrid-datafieldname"), {
                             enumerable: true,
                             get: getter,
                             set: setter
@@ -925,7 +925,7 @@
             if (row) {
 
                 //var fieldValue = object[fieldName];
-                var $control = $(row).find("[u-datafieldname='" + fieldName + "']");
+                var $control = $(row).find("[bizdatagrid-datafieldname='" + fieldName + "']");
                 if ($control.length == 0)
                     return;
 
@@ -933,11 +933,11 @@
                 //$controls.change();
 
                 if (object.error) {
-                    $(row).addClass("u-rowinerror");
+                    $(row).addClass("bizdatagrid-rowinerror");
                 }
 
                 else {
-                    $(row).removeClass("u-rowinerror");
+                    $(row).removeClass("bizdatagrid-rowinerror");
                 }
 
                 if (!$control.get(0))
@@ -945,14 +945,14 @@
 
                 if ($control.get(0).type == "checkbox") {
 
-                                        if($control.attr("u-truevalue")){
+                                        if($control.attr("bizdatagrid-truevalue")){
 
-                            if(fieldValue == $control.attr("u-truevalue"))
+                            if(fieldValue == $control.attr("bizdatagrid-truevalue"))
                                   $control.get(0).checked =  true;
                             else
                                   $control.get(0).checked =  false;
 
-                             fieldValue =    $control.get(0).checked  ? $control.attr("u-truevalue") : $control.attr("u-falsevalue");
+                             fieldValue =    $control.get(0).checked  ? $control.attr("bizdatagrid-truevalue") : $control.attr("bizdatagrid-falsevalue");
                         }
 
                         else{
@@ -964,10 +964,10 @@
 
 
                 if ($control.val().trim() == "") {
-                    if ($control.attr("u-datasource") && $control.attr("u-datasource").indexOf("this") != -1) {
+                    if ($control.attr("bizdatagrid-datasource") && $control.attr("bizdatagrid-datasource").indexOf("this") != -1) {
 
 
-                        var dataSource = object[$control.attr("u-dataSource").split("this.")[1]];
+                        var dataSource = object[$control.attr("bizdatagrid-dataSource").split("this.")[1]];
                         if (dataSource instanceof Array) {
 
                             for (var x = 0; x < dataSource.length; x++)
@@ -982,7 +982,7 @@
                     else {
 
 
-                        var dataSource = window[$control.attr("u-datasource")];
+                        var dataSource = window[$control.attr("bizdatagrid-datasource")];
                         if (dataSource instanceof Array) {
 
                             for (var x = 0; x < dataSource.length; x++)
@@ -1001,29 +1001,29 @@
                 }
 
 
-                if (typeof ($control.attr("u-datafieldpath")) != "undefined" && typeof (fieldValue) == "object") {
+                if (typeof ($control.attr("bizdatagrid-datafieldpath")) != "undefined" && typeof (fieldValue) == "object") {
                     if (fieldValue != null)
-                        if ($control.attr("u-datafieldpath").indexOf("()") != -1) {
-                            if ($control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2) in fieldValue)
+                        if ($control.attr("bizdatagrid-datafieldpath").indexOf("()") != -1) {
+                            if ($control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2) in fieldValue)
 
 
 
 
 
-                                var converterHandler = window[$control.attr("u-valueconverterhandler")];
+                                var converterHandler = window[$control.attr("bizdatagrid-valueconverterhandler")];
                             if (typeof (converterHandler) != "undefined") {
 
                                 if (typeof (converterHandler) == "function") {
 
 
-                                    var val = fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]();
+                                    var val = fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]();
                                     var args = { value: val, valueToShow: val, lastValue: $control.get(0).lastValue, lastValueToShow: $control.get(0).lastValueToShow, objectData: $control.parents("tr").get(0).dataSource }
                                     converterHandler($control.get(0), args);
                                     $control.get(0).lastValue = args.value;
                                     $control.get(0).lastValueToShow = args.valueToShow;
 
                                     // var data = $control.parents("tr").dataSource;
-                                    //dataSource[$control.attr("u-datafieldname")] = args.value;
+                                    //dataSource[$control.attr("bizdatagrid-datafieldname")] = args.value;
                                     $control.attr("value", args.value);
                                     $control.val(args.valueToShow);
 
@@ -1033,25 +1033,25 @@
 
                             else {
 
-                                $control.attr("value", fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]());
-                                //$(this).parents("tr").get(0).dataSource[$(this).attr("u-datafieldname")] 
+                                $control.attr("value", fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]());
+                                //$(this).parents("tr").get(0).dataSource[$(this).attr("bizdatagrid-datafieldname")] 
                             }
 
-                            //$control.attr("value", fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]());
-                            //$control.val(fieldValue[$control.attr("u-datafieldpath").substr(0, $control.attr("u-datafieldpath").length - 2)]());
+                            //$control.attr("value", fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]());
+                            //$control.val(fieldValue[$control.attr("bizdatagrid-datafieldpath").substr(0, $control.attr("bizdatagrid-datafieldpath").length - 2)]());
                             //$control.change();
 
                         }
                         else {
-                            if ($control.attr("u-datafieldpath") in fieldValue) {
+                            if ($control.attr("bizdatagrid-datafieldpath") in fieldValue) {
 
 
-                                var converterHandler = window[$control.attr("u-valueconverterhandler")];
+                                var converterHandler = window[$control.attr("bizdatagrid-valueconverterhandler")];
                                 if (typeof (converterHandler) != "undefined") {
 
                                     if (typeof (converterHandler) == "function") {
 
-                                        var val = fieldValue[$control.attr("u-datafieldpath")];
+                                        var val = fieldValue[$control.attr("bizdatagrid-datafieldpath")];
 
                                         var args = { value: val, valueToShow: val, lastValue: $control.get(0).lastValue, lastValueToShow: $control.get(0).lastValueToShow, objectData: $control.parents("tr").get(0).dataSource }
                                         converterHandler($control.get(0), args);
@@ -1059,32 +1059,32 @@
                                         $control.get(0).lastValueToShow = args.valueToShow;
 
                                         // var data = $control.parents("tr").dataSource;
-                                        //dataSource[$control.attr("u-datafieldname")] = args.value;
+                                        //dataSource[$control.attr("bizdatagrid-datafieldname")] = args.value;
                                         $control.attr("value", args.value);
 
                                         if (object["_" + fieldName] != args.value && object.state == "unmodified")
                                             object.state = "modified";
 
 
-                                        object["_" + fieldName][$control.attr("u-datafieldpath")] = args.value;
+                                        object["_" + fieldName][$control.attr("bizdatagrid-datafieldpath")] = args.value;
 
                                     }
                                 }
 
                                 else {
 
-                                    $control.attr("value", fieldValue[$control.attr("u-datafieldpath")]);
+                                    $control.attr("value", fieldValue[$control.attr("bizdatagrid-datafieldpath")]);
 
 
                                     if (object["_" + fieldName] != fieldValue && object.state == "unmodified")
                                         object.state = "modified";
 
-                                    object["_" + fieldName][$control.attr("u-datafieldpath")] = fieldValue;
-                                    //$(this).parents("tr").get(0).dataSource[$(this).attr("u-datafieldname")] 
+                                    object["_" + fieldName][$control.attr("bizdatagrid-datafieldpath")] = fieldValue;
+                                    //$(this).parents("tr").get(0).dataSource[$(this).attr("bizdatagrid-datafieldname")] 
                                 }
 
-                                //$control.attr("value", fieldValue[$control.attr("u-datafieldpath")]);
-                                //$control.val(fieldValue[$control.attr("u-datafieldpath")]);
+                                //$control.attr("value", fieldValue[$control.attr("bizdatagrid-datafieldpath")]);
+                                //$control.val(fieldValue[$control.attr("bizdatagrid-datafieldpath")]);
                                 //$control.change();
                             }
                         }
@@ -1096,7 +1096,7 @@
 
 
 
-                    var converterHandler = window[$control.attr("u-valueconverterhandler")];
+                    var converterHandler = window[$control.attr("bizdatagrid-valueconverterhandler")];
                     if (typeof (converterHandler) != "undefined") {
 
                         if (typeof (converterHandler) == "function") {
@@ -1106,7 +1106,7 @@
 
                             var valueToShow = "";
 
-                            if ($control.attr("u-datasource"))
+                            if ($control.attr("bizdatagrid-datasource"))
                                 valueToShow = $control.val();
                             else
                                 valueToShow = fieldValue;
@@ -1118,7 +1118,7 @@
                             $control.get(0).lastValueToShow = args.valueToShow;
 
                             // var data = $control.parents("tr").dataSource;
-                            //dataSource[$control.attr("u-datafieldname")] = args.value;
+                            //dataSource[$control.attr("bizdatagrid-datafieldname")] = args.value;
                             $control.attr("value", args.value);
                             $control.val(args.valueToShow);
 
@@ -1140,7 +1140,7 @@
                                 object.state = "modified";
                             object["_" + fieldName] = fieldValue;
                             $control.val(fieldValue);
-                            //$(this).parents("tr").get(0).dataSource[$(this).attr("u-datafieldname")] 
+                            //$(this).parents("tr").get(0).dataSource[$(this).attr("bizdatagrid-datafieldname")] 
 
                         }
 
@@ -1173,12 +1173,12 @@
 
 
 
-                if (typeof (window[$bizDataGrid.attr("u-valueConverterhandler")]) == "function") {
+                if (typeof (window[$bizDataGrid.attr("bizdatagrid-valueConverterhandler")]) == "function") {
 
 
                     //v3
                     var args = { fieldName: fieldName, value: object["_" + fieldName], valueToShow: undefined, lastValue: $control.get(0).lastValue, lastValueToShow: $control.get(0).lastValueToShow, objectData: $control.parents("tr").get(0).dataSource }
-                    window[$bizDataGrid.attr("u-valueConverterhandler")]($control.get(0), args);
+                    window[$bizDataGrid.attr("bizdatagrid-valueConverterhandler")]($control.get(0), args);
 
 
                     var valToAssign = typeof (args.value) == "undefined" ? object["_" + fieldName] : args.value;
@@ -1202,7 +1202,7 @@
                 }
 
 
-                if (!($control.attr("u-datafieldpath") && $control.attr("u-datafieldpath").trim().indexOf("()") != -1))
+                if (!($control.attr("bizdatagrid-datafieldpath") && $control.attr("bizdatagrid-datafieldpath").trim().indexOf("()") != -1))
                     validateData($control.get(0));
 
                 if (typeof (that.onValueChanged) == "function") {
@@ -1238,14 +1238,14 @@
                 $body.find("tr").remove();
                 _removedRows = [];
 
-                //if (typeof ($bizDataGrid.attr("u-paginationhandler")) != "undefined")
+                //if (typeof ($bizDataGrid.attr("bizdatagrid-paginationhandler")) != "undefined")
                 //    setPage(_currentPage);
-                if (typeof ($pager) != "undefined" && _dataSource != null && typeof ($bizDataGrid.attr("u-paginationhandler")) == "undefined") {
+                if (typeof ($pager) != "undefined" && _dataSource != null && typeof ($bizDataGrid.attr("bizdatagrid-paginationhandler")) == "undefined") {
 
 
                     _dataSource = source;
                     _totalPages = getTotalPages();
-                    $pager.find(".u-endButton").show();
+                    $pager.find(".bizdatagrid-endButton").show();
                     setPage(1);
                 }
                 else {
@@ -1302,12 +1302,12 @@
 
             $body.find("tr").each(function (index, row) {
 
-                $(row).find("[u-datafieldname]").each(function (index, control) {
+                $(row).find("[bizdatagrid-datafieldname]").each(function (index, control) {
 
-                    if ($(control).attr("u-bindmode") == "oneway")
+                    if ($(control).attr("bizdatagrid-bindmode") == "oneway")
                         return;
 
-                    var fieldName = $(control).attr("u-datafieldname");
+                    var fieldName = $(control).attr("bizdatagrid-datafieldname");
                     if (fieldName in row.dataSource) {
 
                         var _valueToAssign = { value: null };
@@ -1496,7 +1496,7 @@
         //        }
 
 
-        //        if ($header.find("td").eq(y).find(".u-arrows").length > 0)
+        //        if ($header.find("td").eq(y).find(".bizdatagrid-arrows").length > 0)
         //            maxWidth += 50;
 
         //        if (y in _lastMaxWidths) {
@@ -1561,9 +1561,9 @@
 
                 var myWidth = 0;
 
-                if ($template.find("bizdatagrid-columntemplate").eq(x).attr("u-width")) {
+                if ($template.find("bizdatagrid-columntemplate").eq(x).attr("bizdatagrid-width")) {
 
-                    myWidth = $template.find("bizdatagrid-columntemplate").eq(x).attr("u-width");
+                    myWidth = $template.find("bizdatagrid-columntemplate").eq(x).attr("bizdatagrid-width");
 
                 }
 
@@ -1596,7 +1596,7 @@
 
                     wrapper.css("display", "block");
                     wrapper.css("float", "left");
-                    wrapper.append(columns.eq(x).find(":not([u-datafieldname],.tbRowNumber)").clone());
+                    wrapper.append(columns.eq(x).find(":not([bizdatagrid-datafieldname],.tbRowNumber)").clone());
                     //myWidth = (wrapper.width() + 35 + 5) + "px";
                     myWidth = (wrapper.width() + 30) + "px";
 
@@ -1604,7 +1604,7 @@
 
 
 
-                columnsCSS += "[u-id='" + $bizDataGrid.attr("u-id") + "'] .BizDataGridBody td:nth-child(" + (x + 1) + ") , [u-id='" + $bizDataGrid.attr("u-id") + "'] .BizDataGridHeader td:nth-child(" + (x + 1) + "){";
+                columnsCSS += "[bizdatagrid-id='" + $bizDataGrid.attr("bizdatagrid-id") + "'] .BizDataGridBody td:nth-child(" + (x + 1) + ") , [bizdatagrid-id='" + $bizDataGrid.attr("bizdatagrid-id") + "'] .BizDataGridHeader td:nth-child(" + (x + 1) + "){";
                 columnsCSS += "min-width:" + myWidth + ";"
 
                 columnsCSS += "max-width:" + myWidth + ";";
@@ -1616,8 +1616,8 @@
             }
 
             wrapper.remove();
-            $("#grid" + $bizDataGrid.attr("u-id") + "columnsWidths").remove();
-            AddStyleElement("grid" + $bizDataGrid.attr("u-id") + "columnsWidths", columnsCSS);
+            $("#grid" + $bizDataGrid.attr("bizdatagrid-id") + "columnsWidths").remove();
+            AddStyleElement("grid" + $bizDataGrid.attr("bizdatagrid-id") + "columnsWidths", columnsCSS);
 
 
             measureSpan.remove();
@@ -1627,7 +1627,7 @@
 
 
 
-                if ($bizDataGrid.attr("u-fillspace") == "true")
+                if ($bizDataGrid.attr("bizdatagrid-fillspace") == "true")
                     $pager.css("width", "100%");
                 else
                     $pager.width($body.outerWidth());
@@ -1678,7 +1678,7 @@
                     for (var columnName in columns) {
 
 
-                        var $templ = $template.find("[u-datafieldname='" + columnName + "'] ");
+                        var $templ = $template.find("[bizdatagrid-datafieldname='" + columnName + "'] ");
 
                         if ($templ.length > 0)
                             continue;
@@ -1721,23 +1721,23 @@
 
                             if (inputType == "checkbox") {
 
-                                var $templ = $("<BizDataGrid-ColumnTemplate u-headerName='" + displayName + "' u-canfilter='" + "true" + "' u-filterfieldname='" + columnName + "' u-cansort='true'>" +
-                        "<input type='checkbox'    u-datafieldname='" + columnName + "' u-truevalue='" + trueValue + "' u-falsevalue='" + falseValue + "'   style='text-align:left;'>" +
+                                var $templ = $("<BizDataGrid-ColumnTemplate bizdatagrid-headerName='" + displayName + "' bizdatagrid-canfilter='" + "true" + "' bizdatagrid-filterfieldname='" + columnName + "' bizdatagrid-cansort='true'>" +
+                        "<input type='checkbox'    bizdatagrid-datafieldname='" + columnName + "' bizdatagrid-truevalue='" + trueValue + "' bizdatagrid-falsevalue='" + falseValue + "'   style='text-align:left;'>" +
                    "</BizDataGrid-ColumnTemplate>'");
 
                             }
 
                             else {
 
-                                var $templ = $("<BizDataGrid-ColumnTemplate u-headerName='" + displayName + "' u-canfilter='" + "true" + "' u-filterfieldname='" + columnName + "' u-cansort='true'>" +
-                        "<input type='text' class='textInput'   u-datafieldname='" + columnName + "'   style='text-align:left;'>" +
+                                var $templ = $("<BizDataGrid-ColumnTemplate bizdatagrid-headerName='" + displayName + "' bizdatagrid-canfilter='" + "true" + "' bizdatagrid-filterfieldname='" + columnName + "' bizdatagrid-cansort='true'>" +
+                        "<input type='text' class='textInput'   bizdatagrid-datafieldname='" + columnName + "'   style='text-align:left;'>" +
                    "</BizDataGrid-ColumnTemplate>'");
 
                             }
 
                             if (dataType == "number") {
 
-                                $templ.find("input").attr("u-validators", "number");
+                                $templ.find("input").attr("bizdatagrid-validators", "number");
                             }
 
 
@@ -1753,7 +1753,7 @@
 
                             if (required) {
 
-                                $templ.find("input").attr("u-validators", "requiered");
+                                $templ.find("input").attr("bizdatagrid-validators", "requiered");
                             }
 
                             if (length) {
@@ -1778,15 +1778,15 @@
 
                     var column = options.columns[i];
 
-                    var $templ = $template.find("[u-datafieldname='" + column.name + "'] ");
+                    var $templ = $template.find("[bizdatagrid-datafieldname='" + column.name + "'] ");
 
                     if ($templ.length > 0)
                         continue;
 
                     else {
 
-                        var $templ = $("<BizDataGrid-ColumnTemplate u-headerName='" + column.name + "' u-canfilter='" + (column.canFilter || true) + "' u-filterfieldname='" + (column.filterFieldname || column.name) + "' u-cansort='" + (column.canSort || true) + "'>" +
-                           "<input type='text' class='textInput '  u-datafieldname='" + column.name + "'   style='text-align:left;'>" +
+                        var $templ = $("<BizDataGrid-ColumnTemplate bizdatagrid-headerName='" + column.name + "' bizdatagrid-canfilter='" + (column.canFilter || true) + "' bizdatagrid-filterfieldname='" + (column.filterFieldname || column.name) + "' bizdatagrid-cansort='" + (column.canSort || true) + "'>" +
+                           "<input type='text' class='textInput '  bizdatagrid-datafieldname='" + column.name + "'   style='text-align:left;'>" +
                       "</BizDataGrid-ColumnTemplate>'");
 
                         $template.append($templ)
@@ -1797,7 +1797,7 @@
 
             //var containerWidth = $container.width();
             $bizDataGrid = $(".BizDataGrid", container);
-            $bizDataGrid.attr("u-id", new Date().getTime());
+            $bizDataGrid.attr("bizdatagrid-id", new Date().getTime());
             $bizDataGrid.find("*[class*='BizDataGrid']").remove();
 
             $bizDataGrid.get(0).BizDataGrid = that;
@@ -1809,17 +1809,17 @@
 
             if (_showRowNumber == true) {
 
-                $template.prepend($('<BizDataGrid-ColumnTemplate u-headerName="No." >' +
+                $template.prepend($('<BizDataGrid-ColumnTemplate bizdatagrid-headerName="No." >' +
                         '<input  type="text"  class="textInput tbRowNumber"  readonly="true" style="text-align:center"></BizDataGrid-ColumnTemplate>'));
-                //$template.prepend($('<BizDataGrid-ColumnTemplate u-headerName="Válido" >' +
+                //$template.prepend($('<BizDataGrid-ColumnTemplate bizdatagrid-headerName="Válido" >' +
                 //        '<input  type="text"  class="textInput tbRowNumber"  readonly="true" style="text-align:center"></BizDataGrid-ColumnTemplate>'));
 
             }
 
 
-            if ($bizDataGrid.attr("u-fillspace") == "true") {
+            if ($bizDataGrid.attr("bizdatagrid-fillspace") == "true") {
 
-                $template.append($('<BizDataGrid-ColumnTemplate u-headerName="" style="width:100%;min-width:100%;max-width:100%" u-canfilter="false" u-cansort="false" >' +
+                $template.append($('<BizDataGrid-ColumnTemplate bizdatagrid-headerName="" style="width:100%;min-width:100%;max-width:100%" bizdatagrid-canfilter="false" bizdatagrid-cansort="false" >' +
                         '</BizDataGrid-ColumnTemplate>'));
 
             }
@@ -1831,7 +1831,7 @@
             //AddExcelExport();
             //AddFastAccessKeys();
 
-            //if (typeof (window[$bizDataGrid.attr("u-paginationhandler")]) == "function") {
+            //if (typeof (window[$bizDataGrid.attr("bizdatagrid-paginationhandler")]) == "function") {
 
 
             //    _currentFilter = { fieldName: null, filterValue: null, direction: null, pageNumber: 1, pageSize: _paginationSize };
@@ -1839,12 +1839,12 @@
 
             //}
 
-            //else if (typeof (window[$bizDataGrid.attr("u-filterhandler")]) == "function" && typeof (window[$bizDataGrid.attr("u-paginationhandler")]) != "function") {
+            //else if (typeof (window[$bizDataGrid.attr("bizdatagrid-filterhandler")]) == "function" && typeof (window[$bizDataGrid.attr("bizdatagrid-paginationhandler")]) != "function") {
 
 
             //    _currentFilter = { fieldName: null, filterValue: null, direction: null, pageNumber: 1, pageSize: _paginationSize };
             //    //setPage(1);
-            //    (window[$bizDataGrid.attr("u-filterhandler")])(_currentFilter);
+            //    (window[$bizDataGrid.attr("bizdatagrid-filterhandler")])(_currentFilter);
 
             //}
 
@@ -1861,11 +1861,11 @@
 
 
                 var data = $(this).parents("tr").get(0).dataSource;
-                //data[$(this).attr("u-datafieldname")] = $(this).val();
+                //data[$(this).attr("bizdatagrid-datafieldname")] = $(this).val();
 
-                if ($(this).attr("u-datasource")) {
+                if ($(this).attr("bizdatagrid-datasource")) {
 
-                    updateControlData($(this).attr("u-datafieldname"), $(this).attr("value"), data);
+                    updateControlData($(this).attr("bizdatagrid-datafieldname"), $(this).attr("value"), data);
 
                 }
 
@@ -1875,12 +1875,12 @@
 
                       
 
-                         updateControlData($(this).attr("u-datafieldname"),  this.checked , data);
+                         updateControlData($(this).attr("bizdatagrid-datafieldname"),  this.checked , data);
                     
 
                     }
                     else {
-                        updateControlData($(this).attr("u-datafieldname"), $(this).val(), data);
+                        updateControlData($(this).attr("bizdatagrid-datafieldname"), $(this).val(), data);
 
                     }
                 }
@@ -1913,7 +1913,7 @@
         function AddExcelExport() {
 
             var btnExport = $("<div unselectable='on' style='cursor:pointer' href='javascript:;' onclick='exportarExcel();' class='ms-cui-ctl-large ' aria-describedby='Ribbon.List.Actions.ExportToSpreadsheet_ToolTip' mscui:controltype='Button' role='button' id='Ribbon.List.Actions.ExportToSpreadsheet-Large'><span unselectable='on' class='ms-cui-ctl-largeIconContainer'><span unselectable='on' class=' ms-cui-img-32by32 ms-cui-img-cont-float'><img unselectable='on' alt='' src='/_layouts/15/3082/images/formatmap32x32.png?rev=23' style='top: -239px; left: -307px;'></span></span><span unselectable='on' class='ms-cui-ctl-largelabel'>Exportar a<br>Excel</span></div>");
-            $bizDataGrid.find(".u-header-title").append(btnExport);
+            $bizDataGrid.find(".bizdatagrid-header-title").append(btnExport);
             btnExport.click(that.exportToExcel);
 
         }
@@ -1924,7 +1924,7 @@
 
                 var row = that.getRow(entities[x]);
 
-                var columnsToValidate = $(row).find("[u-validators]");
+                var columnsToValidate = $(row).find("[bizdatagrid-validators]");
 
                 for (var y = 0; y < columnsToValidate.length; y++) {
 
@@ -1937,7 +1937,7 @@
 
         function validateGrid() {
 
-            $("[u-validators]", $bizDataGrid).each(function (index, value) {
+            $("[bizdatagrid-validators]", $bizDataGrid).each(function (index, value) {
 
                 validateData(value);
             });
@@ -1993,7 +1993,7 @@
             if (_canValidate == false)
                 return;
 
-            var validators = $(input).attr("u-validators");
+            var validators = $(input).attr("bizdatagrid-validators");
 
             if (typeof (validators) != "undefined") {
 
@@ -2005,14 +2005,14 @@
 
                         if ($(input).val().trim() == "") {
 
-                            AddError(input, $bizDataGrid.find("u-message[u-validatorname = 'requiered']").text().trim());
+                            AddError(input, $bizDataGrid.find("bizdatagrid-message[bizdatagrid-validatorname = 'requiered']").text().trim());
 
                         }
 
                         else {
 
 
-                            removeError(input, $bizDataGrid.find("u-message[u-validatorname = 'requiered']").text().trim());
+                            removeError(input, $bizDataGrid.find("bizdatagrid-message[bizdatagrid-validatorname = 'requiered']").text().trim());
 
 
                         }
@@ -2024,14 +2024,14 @@
 
                         if (!IsNumeric($(input).val())) {
 
-                            AddError(input, $bizDataGrid.find("u-message[u-validatorname = 'number']").text().trim());
+                            AddError(input, $bizDataGrid.find("bizdatagrid-message[bizdatagrid-validatorname = 'number']").text().trim());
 
                         }
 
                         else {
 
 
-                            removeError(input, $bizDataGrid.find("u-message[u-validatorname = 'number']").text().trim());
+                            removeError(input, $bizDataGrid.find("bizdatagrid-message[bizdatagrid-validatorname = 'number']").text().trim());
 
 
 
@@ -2045,11 +2045,11 @@
                         if (($(input).val().trim().indexOf("$") == 0)) {
 
                             if (!IsPriceNumber($(input).val().trim().split("$")[1]))
-                                AddError(input, $bizDataGrid.find("u-message[u-validatorname = 'price']").text().trim());
+                                AddError(input, $bizDataGrid.find("bizdatagrid-message[bizdatagrid-validatorname = 'price']").text().trim());
 
 
 
-                            removeError(input, $bizDataGrid.find("u-message[u-validatorname = 'price']").text().trim());
+                            removeError(input, $bizDataGrid.find("bizdatagrid-message[bizdatagrid-validatorname = 'price']").text().trim());
 
 
 
@@ -2057,11 +2057,11 @@
 
                         else {
                             if (!IsPriceNumber($(input).val().trim()))
-                                AddError(input, $bizDataGrid.find("u-message[u-validatorname = 'price']").text().trim());
+                                AddError(input, $bizDataGrid.find("bizdatagrid-message[bizdatagrid-validatorname = 'price']").text().trim());
                             else {
 
 
-                                removeError(input, $bizDataGrid.find("u-message[u-validatorname = 'price']").text().trim());
+                                removeError(input, $bizDataGrid.find("bizdatagrid-message[bizdatagrid-validatorname = 'price']").text().trim());
 
                             }
 
@@ -2076,13 +2076,13 @@
                             var result = window[customValidators[y]](input);
 
                             if (result == false) {
-                                AddError(input, $bizDataGrid.find("u-message[u-validatorname = '" + customValidators[y] + "']").text().trim());
+                                AddError(input, $bizDataGrid.find("bizdatagrid-message[bizdatagrid-validatorname = '" + customValidators[y] + "']").text().trim());
                             }
 
                             else {
 
 
-                                removeError(input, $bizDataGrid.find("u-message[u-validatorname = '" + customValidators[y] + "']").text().trim());
+                                removeError(input, $bizDataGrid.find("bizdatagrid-message[bizdatagrid-validatorname = '" + customValidators[y] + "']").text().trim());
 
                             }
                         }
@@ -2094,7 +2094,7 @@
         function AddError(target, error) {
 
             //for (var item in _errors) {
-            //    if (_errors[item].error == error && _errors[item].entity == $(target).closest("tr").get(0).dataSource && _errors[item].fieldName == $(target).attr("u-datafieldname"))
+            //    if (_errors[item].error == error && _errors[item].entity == $(target).closest("tr").get(0).dataSource && _errors[item].fieldName == $(target).attr("bizdatagrid-datafieldname"))
             //        return;
             //}
 
@@ -2104,7 +2104,7 @@
             $(target).closest("tr").get(0).dataSource.errors
             $(target).closest("tr").get(0).dataSource.hasErrors = true;
             target.__hasError = true;
-            _errors.push({ entity: $(target).closest("tr").get(0).dataSource, fieldName: $(target).attr("u-datafieldname"), error: error });
+            _errors.push({ entity: $(target).closest("tr").get(0).dataSource, fieldName: $(target).attr("bizdatagrid-datafieldname"), error: error });
             showError(target, error);
         }
 
@@ -2112,7 +2112,7 @@
 
             for (var x in _errors) {
 
-                if (_errors[x].entity == $(target).closest("tr").get(0).dataSource && _errors[x].fieldName == $(target).attr("u-datafieldname") && _errors[x].error.trim() == error.trim()) {
+                if (_errors[x].entity == $(target).closest("tr").get(0).dataSource && _errors[x].fieldName == $(target).attr("bizdatagrid-datafieldname") && _errors[x].error.trim() == error.trim()) {
                     _errors.splice(x, 1);
 
 
@@ -2137,7 +2137,7 @@
             var $target = $(target)
 
 
-            var $error = $("<div class='u-errorBox'/>");
+            var $error = $("<div class='bizdatagrid-errorBox'/>");
 
 
             $error.text(message);
@@ -2184,7 +2184,7 @@
         //    var $target = $(target)
 
 
-        //    var $error = $("<div class='u-errorBox'/>");
+        //    var $error = $("<div class='bizdatagrid-errorBox'/>");
 
 
         //    $error.text(message);
@@ -2210,12 +2210,12 @@
 
         function AddTitle() {
 
-            var $title = $("<div class='u-header-title'></div>")
-            $title.text(_options.title || $bizDataGrid.attr("u-title") || "");
+            var $title = $("<div class='bizdatagrid-header-title'></div>")
+            $title.text(_options.title || $bizDataGrid.attr("bizdatagrid-title") || "");
 
-            if ($bizDataGrid.find("u-titletemplate").length > 0) {
-                var $title = $($bizDataGrid.find("u-titletemplate").changeElementType("div")[0]);
-                $title.addClass("u-header-title");
+            if ($bizDataGrid.find("bizdatagrid-titletemplate").length > 0) {
+                var $title = $($bizDataGrid.find("bizdatagrid-titletemplate").changeElementType("div")[0]);
+                $title.addClass("bizdatagrid-header-title");
             }
             $bizDataGrid.append($title);
 
@@ -2226,7 +2226,7 @@
             $header = $("<table  class='BizDataGridHeader'>");
 
             var $headerRow = $("<tr></tr>");
-            $headerRow.css("height", $template.attr("u-headerheight"));
+            $headerRow.css("height", $template.attr("bizdatagrid-headerheight"));
 
             $template.find("bizdatagrid-columntemplate").each(function (index, value) {
 
@@ -2234,8 +2234,8 @@
 
                 for (var x = 0; x < _options.columns.length; x++) {
 
-                    if (_options.columns[x].fieldName == $headerColumnTemplate.find("[u-datafieldname]").attr("u-datafieldname")) {
-                        //if (_options.columns[$headerColumnTemplate.find("[u-datafieldname]").attr("u-datafieldname")]) {
+                    if (_options.columns[x].fieldName == $headerColumnTemplate.find("[bizdatagrid-datafieldname]").attr("bizdatagrid-datafieldname")) {
+                        //if (_options.columns[$headerColumnTemplate.find("[bizdatagrid-datafieldname]").attr("bizdatagrid-datafieldname")]) {
                         if (_options.columns[x].visible === false) {
 
                             return;
@@ -2246,29 +2246,29 @@
 
 
                 var $headerColumn = null;
-                if ($headerColumnTemplate.find("u-headertemplate").length > 0)
-                    $headerColumn = $($headerColumnTemplate.find("u-headertemplate").changeElementType("td")[0]);
+                if ($headerColumnTemplate.find("bizdatagrid-headertemplate").length > 0)
+                    $headerColumn = $($headerColumnTemplate.find("bizdatagrid-headertemplate").changeElementType("td")[0]);
                 else
                     $headerColumn = $("<td/>");
 
                 $headerColumn.attr("style", $headerColumnTemplate.attr("style"));
-                $headerColumn.append($("<div/ class='u-headerText'>").html($headerColumnTemplate.attr("u-headername")));
-                $headerColumn.attr("u-headerName", $headerColumnTemplate.find("[u-datafieldname]").attr("u-datafieldname"));
-                if ($headerColumnTemplate.attr("u-canfilter") != "false" && $headerColumn.text() != "No.") {
+                $headerColumn.append($("<div/ class='bizdatagrid-headerText'>").html($headerColumnTemplate.attr("bizdatagrid-headername")));
+                $headerColumn.attr("bizdatagrid-headerName", $headerColumnTemplate.find("[bizdatagrid-datafieldname]").attr("bizdatagrid-datafieldname"));
+                if ($headerColumnTemplate.attr("bizdatagrid-canfilter") != "false" && $headerColumn.text() != "No.") {
 
 
-                    var $filterBox = $("<input style='display:none' onkeypress=' var code = event.keyCode || event.which; if(code==13)return false;' class='u-filterbox'/>");
-                    //$filterBox.attr("u-filterfieldname", $headerColumnTemplate.attr("u-filterfieldname"));
+                    var $filterBox = $("<input style='display:none' onkeypress=' var code = event.keyCode || event.which; if(code==13)return false;' class='bizdatagrid-filterbox'/>");
+                    //$filterBox.attr("bizdatagrid-filterfieldname", $headerColumnTemplate.attr("bizdatagrid-filterfieldname"));
 
-                    if ($headerColumnTemplate.find("u-filtercollection").length > 0) {
+                    if ($headerColumnTemplate.find("bizdatagrid-filtercollection").length > 0) {
 
                         var filterValues = []
 
-                        $headerColumnTemplate.find("u-filter").each(function (index, value) {
+                        $headerColumnTemplate.find("bizdatagrid-filter").each(function (index, value) {
 
                             var filter = {};
-                            filter.value = $(value).attr("u-value");
-                            filter.description = $(value).attr("u-description");
+                            filter.value = $(value).attr("bizdatagrid-value");
+                            filter.description = $(value).attr("bizdatagrid-description");
 
                             filterValues.push(filter);
 
@@ -2279,12 +2279,12 @@
 
                     }
 
-                    $headerColumnTemplate.find("u-filtercollection").remove();
+                    $headerColumnTemplate.find("bizdatagrid-filtercollection").remove();
 
 
-                    if (typeof ($bizDataGrid.attr("u-filterhandler")) != "undefined") {
+                    if (typeof ($bizDataGrid.attr("bizdatagrid-filterhandler")) != "undefined") {
 
-                        if ($bizDataGrid.attr("u-filterhandler") in window) {
+                        if ($bizDataGrid.attr("bizdatagrid-filterhandler") in window) {
 
                             $filterBox.on("keyup", function (e) {
 
@@ -2292,15 +2292,15 @@
 
                                 if (code == 13) {
 
-                                    //var fieldName = (_currentFilter && _currentFilter.fieldName) != null ? _currentFilter.fieldName + "," + $headerColumnTemplate.attr("u-filterfieldname") : $headerColumnTemplate.attr("u-filterfieldname");
-                                    var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                                    //var fieldName = (_currentFilter && _currentFilter.fieldName) != null ? _currentFilter.fieldName + "," + $headerColumnTemplate.attr("bizdatagrid-filterfieldname") : $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
+                                    var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
 
                                     var filterValue = $(this).attr("value") || $(this).val();
                                     //var filterValue = (_currentFilter && _currentFilter.fieldName) != null ? _currentFilter.filterValue + "," + $(this).attr("value") || $(this).val() : $(this).attr("value") || $(this).val();
 
-                                    var direction = $headerColumn.find(".u-arrows").get(0).currentDirection || "asc";
+                                    var direction = $headerColumn.find(".bizdatagrid-arrows").get(0).currentDirection || "asc";
 
-                                    var filterValues = { fieldName: $headerColumnTemplate.attr("u-filterfieldname"), fieldValue: $(this).attr("value") || $(this).val(),direction:direction };
+                                    var filterValues = { fieldName: $headerColumnTemplate.attr("bizdatagrid-filterfieldname"), fieldValue: $(this).attr("value") || $(this).val(),direction:direction };
 
                                     var filters = [];
                                    
@@ -2324,24 +2324,24 @@
                                     var args = { fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: 1, pageSize: _paginationSize,filters:filters };
                                     _currentFilter = cloneObj(args);
 
-                                    if ($headerColumnTemplate.attr("u-filterhandler") == "local")
+                                    if ($headerColumnTemplate.attr("bizdatagrid-filterhandler") == "local")
                                         filter(args);
-                                    else if (typeof (window[$template.find("[u-filterfieldname='" + args.fieldName + "']").attr("u-filterhandler")]) == "function") {
-                                        window[$template.find("[u-filterfieldname='" + args.fieldName + "']").attr("u-filterhandler")](args);
-                                        _lastFilter = window[$template.find("[u-filterfieldname='" + args.fieldName + "']").attr("u-filterhandler")];
+                                    else if (typeof (window[$template.find("[bizdatagrid-filterfieldname='" + args.fieldName + "']").attr("bizdatagrid-filterhandler")]) == "function") {
+                                        window[$template.find("[bizdatagrid-filterfieldname='" + args.fieldName + "']").attr("bizdatagrid-filterhandler")](args);
+                                        _lastFilter = window[$template.find("[bizdatagrid-filterfieldname='" + args.fieldName + "']").attr("bizdatagrid-filterhandler")];
                                     }
-                                    else if (typeof (window[$bizDataGrid.attr("u-filterhandler")]) == "function") {
-                                        window[$bizDataGrid.attr("u-filterhandler")](args);
-                                        _lastFilter = window[$bizDataGrid.attr("u-filterhandler")];
+                                    else if (typeof (window[$bizDataGrid.attr("bizdatagrid-filterhandler")]) == "function") {
+                                        window[$bizDataGrid.attr("bizdatagrid-filterhandler")](args);
+                                        _lastFilter = window[$bizDataGrid.attr("bizdatagrid-filterhandler")];
                                     }
                                     else
                                         filter(args);
 
                                     var imagesPath = $("script[src*='bizDataGrid.js']").attr("src").split('bizDataGrid.js')[0] + "images/";
-                                    var $cancelFilter = $("<img class='u-cancelFilter'/>").attr("src", imagesPath + "removeFilter.png");
-                                    //$header.find(".u-cancelFilter").remove();
+                                    var $cancelFilter = $("<img class='bizdatagrid-cancelFilter'/>").attr("src", imagesPath + "removeFilter.png");
+                                    //$header.find(".bizdatagrid-cancelFilter").remove();
                                     //$cancelFilter.hide();
-                                    $filterBox.parents("td").find(".u-cancelFilter").remove();
+                                    $filterBox.parents("td").find(".bizdatagrid-cancelFilter").remove();
                                     $filterBox.parents("td").append($cancelFilter);
                                     $(this).blur();
 
@@ -2350,26 +2350,26 @@
                             });
                         }
 
-                        else if ($bizDataGrid.attr("u-filterhandler") == "local"){
+                        else if ($bizDataGrid.attr("bizdatagrid-filterhandler") == "local"){
 
                                 $filterBox.on("keyup", function (e) {
                                 code = e.keyCode || e.which;
 
                                 if (code == 13) {
 
-                                    var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                                    var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
                                     var filterValue = $(this).attr("value") || $(this).val();
-                                    var direction = ($headerColumn.find(".u-arrows").get(0) && $headerColumn.find(".u-arrows").get(0).currentDirection) || "asc";
+                                    var direction = ($headerColumn.find(".bizdatagrid-arrows").get(0) && $headerColumn.find(".bizdatagrid-arrows").get(0).currentDirection) || "asc";
 
                                     var args = { fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: 1, pageSize: _paginationSize };
                                     _currentFilter = cloneObj(args);
 
-                                    if ($bizDataGrid.attr("u-filterhandler") == "local")
+                                    if ($bizDataGrid.attr("bizdatagrid-filterhandler") == "local")
                                         filter(args);
 
                                     var imagesPath = $("script[src*='bizDataGrid.js']").attr("src").split('bizDataGrid.js')[0] + "images/";
-                                    var $cancelFilter = $("<img class='u-cancelFilter'/>").attr("src", imagesPath + "removeFilter.png");
-                                    $header.find(".u-cancelFilter").remove();
+                                    var $cancelFilter = $("<img class='bizdatagrid-cancelFilter'/>").attr("src", imagesPath + "removeFilter.png");
+                                    $header.find(".bizdatagrid-cancelFilter").remove();
                                     $filterBox.parents("td").append($cancelFilter);
                                     $cancelFilter.show();
 
@@ -2383,9 +2383,9 @@
                     }
 
 
-                    else if (typeof ($headerColumnTemplate.attr("u-filterhandler")) != "undefined") {
+                    else if (typeof ($headerColumnTemplate.attr("bizdatagrid-filterhandler")) != "undefined") {
 
-                        if ($headerColumnTemplate.attr("u-filterhandler") in window) {
+                        if ($headerColumnTemplate.attr("bizdatagrid-filterhandler") in window) {
 
 
                             $filterBox.on("keyup", function (e) {
@@ -2394,18 +2394,18 @@
 
                                 if (code == 13) {
 
-                                    var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                                    var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
                                     var filterValue = $(this).val();
-                                    var direction = $headerColumn.find(".u-arrows").get(0).currentDirection;
+                                    var direction = $headerColumn.find(".bizdatagrid-arrows").get(0).currentDirection;
 
 
                                     var args = { fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: 1, pageSize: _paginationSize };
                                     _currentFilter = cloneObj(args);
 
-                                    window[$(value).attr("u-filterhandler")](args);
+                                    window[$(value).attr("bizdatagrid-filterhandler")](args);
                                     var imagesPath = $("script[src*='bizDataGrid.js']").attr("src").split('bizDataGrid.js')[0] + "images/";
-                                    var $cancelFilter = $("<img class='u-cancelFilter'/>").attr("src", imagesPath + "removeFilter.png");
-                                    $header.find(".u-cancelFilter").remove();
+                                    var $cancelFilter = $("<img class='bizdatagrid-cancelFilter'/>").attr("src", imagesPath + "removeFilter.png");
+                                    $header.find(".bizdatagrid-cancelFilter").remove();
                                     $filterBox.parents("td").append($cancelFilter);
                                     $cancelFilter.show();
 
@@ -2417,7 +2417,7 @@
                             });
                         }
 
-                        else if ($headerColumnTemplate.attr("u-filterhandler") == "local") {
+                        else if ($headerColumnTemplate.attr("bizdatagrid-filterhandler") == "local") {
 
                             $filterBox.on("keyup", function (e) {
 
@@ -2425,19 +2425,19 @@
 
                                 if (code == 13) {
 
-                                    var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                                    var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
                                     var filterValue = $(this).attr("value") || $(this).val();
-                                    var direction = ($headerColumn.find(".u-arrows").get(0) && $headerColumn.find(".u-arrows").get(0).currentDirection) || "asc";
+                                    var direction = ($headerColumn.find(".bizdatagrid-arrows").get(0) && $headerColumn.find(".bizdatagrid-arrows").get(0).currentDirection) || "asc";
 
                                     var args = { fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: 1, pageSize: _paginationSize };
                                     _currentFilter = cloneObj(args);
 
-                                    if ($headerColumnTemplate.attr("u-filterhandler") == "local")
+                                    if ($headerColumnTemplate.attr("bizdatagrid-filterhandler") == "local")
                                         filter(args);
 
                                     var imagesPath = $("script[src*='bizDataGrid.js']").attr("src").split('bizDataGrid.js')[0] + "images/";
-                                    var $cancelFilter = $("<img class='u-cancelFilter'/>").attr("src", imagesPath + "removeFilter.png");
-                                    $header.find(".u-cancelFilter").remove();
+                                    var $cancelFilter = $("<img class='bizdatagrid-cancelFilter'/>").attr("src", imagesPath + "removeFilter.png");
+                                    $header.find(".bizdatagrid-cancelFilter").remove();
                                     $filterBox.parents("td").append($cancelFilter);
                                     $cancelFilter.show();
 
@@ -2459,9 +2459,9 @@
 
                             if (code == 13) {
 
-                                var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                                var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
                                 var filterValue = $(this).val();
-                                var direction = $headerColumn.find(".u-arrows").get(0).currentDirection;
+                                var direction = $headerColumn.find(".bizdatagrid-arrows").get(0).currentDirection;
 
 
                                 var args = { fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: 1, pageSize: _paginationSize };
@@ -2469,8 +2469,8 @@
 
                                 setPage(1);
                                 var imagesPath = $("script[src*='bizDataGrid.js']").attr("src").replace('bizDataGrid.js', '') + "images/";
-                                var $cancelFilter = $("<img class='u-cancelFilter'/>").attr("src", imagesPath + "removeFilter.png");
-                                $header.find(".u-cancelFilter").remove();
+                                var $cancelFilter = $("<img class='bizdatagrid-cancelFilter'/>").attr("src", imagesPath + "removeFilter.png");
+                                $header.find(".bizdatagrid-cancelFilter").remove();
                                 $cancelFilter.hide();
                                 $filterBox.parents("td").append($cancelFilter);
                                 $(this).blur();
@@ -2491,14 +2491,14 @@
 
                 $headerColumn.css({ maxWidth: $headerColumn.get(0).style.width, minWidth: $headerColumn.get(0).style.width });
 
-                if ($headerColumnTemplate.attr("u-cansort") != "false" && $headerColumn.text() != "No.") {
+                if ($headerColumnTemplate.attr("bizdatagrid-cansort") != "false" && $headerColumn.text() != "No.") {
 
 
                     var jsFilePath = $("script[src*='bizDataGrid.js']").attr("src").split('bizDataGrid.js')[0];
 
-                    var $arrows = $("<div class='u-arrows'/> ");
-                    var $upArrow = $("<img class='u-arrowImage u-upArrow'  />").attr("src", jsFilePath + "images/FlechaArriba.png");
-                    var $downArrow = $("<img class='u-arrowImage u-downArrow'/>").attr("src", jsFilePath + "images/FlechaAbajo.png");;
+                    var $arrows = $("<div class='bizdatagrid-arrows'/> ");
+                    var $upArrow = $("<img class='bizdatagrid-arrowImage bizdatagrid-upArrow'  />").attr("src", jsFilePath + "images/FlechaArriba.png");
+                    var $downArrow = $("<img class='bizdatagrid-arrowImage bizdatagrid-downArrow'/>").attr("src", jsFilePath + "images/FlechaAbajo.png");;
 
                     $upArrow.click(function () {
 
@@ -2517,7 +2517,7 @@
                     });
 
 
-                    if ($headerColumnTemplate.attr("u-filterhandler") == "local") {
+                    if ($headerColumnTemplate.attr("bizdatagrid-filterhandler") == "local") {
 
                         $upArrow.on("click", function () {
                             //$(this).attr("src", jsFilePath + "images/FlechaArribaVerde.png");
@@ -2526,7 +2526,7 @@
 
 
                             //$downArrow.hide();
-                            var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                            var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
                             var filterValue = $filterBox.val();
                             var direction = "asc";
 
@@ -2544,7 +2544,7 @@
                             $upArrow.attr("src", jsFilePath + "images/FlechaArriba.png");
 
                             //$upArrow.show();
-                            var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                            var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
                             var filterValue = $filterBox.val();
                             var direction = "desc";
 
@@ -2558,9 +2558,9 @@
                         });
                     }
 
-                    else if (typeof ($bizDataGrid.attr("u-filterhandler")) != "undefined") {
+                    else if (typeof ($bizDataGrid.attr("bizdatagrid-filterhandler")) != "undefined") {
 
-                        if (typeof (window[$bizDataGrid.attr("u-filterhandler")]) == "function") {
+                        if (typeof (window[$bizDataGrid.attr("bizdatagrid-filterhandler")]) == "function") {
 
                             $upArrow.on("click", function () {
 
@@ -2570,14 +2570,14 @@
                                 $downArrow.attr("src", jsFilePath + "images/FlechaAbajo.png");
 
                                 //$downArrow.show();
-                                var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                                var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
                                 var filterValue = $filterBox.val();
                                 var direction = "asc";
 
                                 var args = { fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: _currentPage, pageSize: _paginationSize };
                                 _currentFilter = cloneObj(args);
 
-                                window[$bizDataGrid.attr("u-filterhandler")](args);
+                                window[$bizDataGrid.attr("bizdatagrid-filterhandler")](args);
                                 $arrows.get(0).currentDirection = "asc"
                                 //$(this).hide();
                             });
@@ -2592,10 +2592,10 @@
                                 var filterValue = $filterBox.val();
                                 var direction = "desc";
 
-                                var args = { fieldName: $headerColumnTemplate.attr("u-filterfieldname"), filterValue: filterValue, direction: direction, pageNumber: _currentPage, pageSize: _paginationSize };
+                                var args = { fieldName: $headerColumnTemplate.attr("bizdatagrid-filterfieldname"), filterValue: filterValue, direction: direction, pageNumber: _currentPage, pageSize: _paginationSize };
                                 _currentFilter = cloneObj(args);
 
-                                window[$bizDataGrid.attr("u-filterhandler")](args);
+                                window[$bizDataGrid.attr("bizdatagrid-filterhandler")](args);
                                 $arrows.get(0).currentDirection = "desc";
                                 //$(this).hide();
 
@@ -2608,9 +2608,9 @@
 
                     }
 
-                    else if (typeof ($headerColumnTemplate.attr("u-filterhandler")) != "undefined") {
+                    else if (typeof ($headerColumnTemplate.attr("bizdatagrid-filterhandler")) != "undefined") {
 
-                        if (typeof (window[$headerColumnTemplate.attr("u-filterhandler")]) == "function") {
+                        if (typeof (window[$headerColumnTemplate.attr("bizdatagrid-filterhandler")]) == "function") {
 
                             $upArrow.on("click", function () {
 
@@ -2619,14 +2619,14 @@
                                 $downArrow.attr("src", jsFilePath + "images/FlechaAbajo.png");
 
                                 //$downArrow.show();
-                                var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                                var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
                                 var filterValue = $filterBox.val();
                                 var direction = "asc";
 
                                 var args = { fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: _currentPage, pageSize: _paginationSize };
                                 _currentFilter = cloneObj(args);
 
-                                window[$headerColumnTemplate.attr("u-filterhandler")](args);
+                                window[$headerColumnTemplate.attr("bizdatagrid-filterhandler")](args);
                                 $arrows.get(0).currentDirection = "asc";
                                 //$(this).hide();
                             });
@@ -2638,14 +2638,14 @@
                                 $upArrow.attr("src", jsFilePath + "images/FlechaArriba.png");
 
                                 //$upArrow.show();
-                                var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                                var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
                                 var filterValue = $filterBox.val();
                                 var direction = "desc";
 
                                 var args = { fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: _currentPage, pageSize: _paginationSize };
                                 _currentFilter = cloneObj(args);
 
-                                window[$headerColumnTemplate.attr("u-filterhandler")](args);
+                                window[$headerColumnTemplate.attr("bizdatagrid-filterhandler")](args);
                                 $arrows.get(0).currentDirection = "desc";
                                 //$(this).hide();
 
@@ -2666,7 +2666,7 @@
 
 
                             //$downArrow.hide();
-                            var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                            var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
                             var filterValue = "";
 
                             if ($filterBox)
@@ -2687,7 +2687,7 @@
                             $upArrow.attr("src", jsFilePath + "images/FlechaArriba.png");
 
                             //$upArrow.show();
-                            var fieldName = $headerColumnTemplate.attr("u-filterfieldname");
+                            var fieldName = $headerColumnTemplate.attr("bizdatagrid-filterfieldname");
 
 
                             var filterValue = "";
@@ -2721,21 +2721,21 @@
                 $headerRow.append($headerColumn);
             });
 
-            $headerRow.find(".u-headerText").on("click", function () {
+            $headerRow.find(".bizdatagrid-headerText").on("click", function () {
 
                 if (_canFilterAndSort == true) {
-                    $headerRow.find("td:not(td:nth-child(" + ($(this).parents("td").index() + 1) + "))").find(".u-filterbox").hide();
-                    var $filterBox = $(this).siblings(".u-filterbox");
+                    $headerRow.find("td:not(td:nth-child(" + ($(this).parents("td").index() + 1) + "))").find(".bizdatagrid-filterbox").hide();
+                    var $filterBox = $(this).siblings(".bizdatagrid-filterbox");
                     if ($filterBox.is(":hidden"))
                         $filterBox.css("display", "block");
                     $filterBox.focus();
 
-                    $(this).siblings(".u-arrows,.u-cancelFilter").hide();
+                    $(this).siblings(".bizdatagrid-arrows,.bizdatagrid-cancelFilter").hide();
                 }
 
             });
 
-            $headerRow.find(".u-filterbox").on("blur", function () {
+            $headerRow.find(".bizdatagrid-filterbox").on("blur", function () {
 
                 //if (this.haveFilterCollection == true) {
                 //    $(this).focus();
@@ -2744,7 +2744,7 @@
                 if (_canFilterAndSort == true) {
                     if (this.canHide != false) {
                         $(this).hide(200, function () {
-                            $(this).siblings(".u-arrows,.u-cancelFilter").show();
+                            $(this).siblings(".bizdatagrid-arrows,.bizdatagrid-cancelFilter").show();
                         });
 
                     }
@@ -2754,19 +2754,19 @@
             });
 
             //$headerRow.find("td").on("mouseleave", function () {
-            //    $(this).find(".u-filterbox").hide();
-            //    $(this).find(".u-arrows, .u-cancelFilter").show();
+            //    $(this).find(".bizdatagrid-filterbox").hide();
+            //    $(this).find(".bizdatagrid-arrows, .bizdatagrid-cancelFilter").show();
             //});
 
 
 
-            $bizDataGrid.on("click", ".u-cancelFilter", function () {
+            $bizDataGrid.on("click", ".bizdatagrid-cancelFilter", function () {
 
                 var $headerColumnTemplate = $template.find("bizdatagrid-columntemplate").eq($(this).parents("td").index());
-                var filterHandlerName = $bizDataGrid.attr("u-filterhandler") || $headerColumnTemplate.attr("u-filterhandler");
+                var filterHandlerName = $bizDataGrid.attr("bizdatagrid-filterhandler") || $headerColumnTemplate.attr("bizdatagrid-filterhandler");
                 if (filterHandlerName) {
 
-                    var fieldName = $headerColumnTemplate.find("input").attr("u-datafieldname");
+                    var fieldName = $headerColumnTemplate.find("input").attr("bizdatagrid-datafieldname");
 
                     //var fieldNames = (_currentFilter && _currentFilter.fieldName.split(",")) || "";
                     //if (_currentFilter && ((_currentFilter && _currentFilter.fieldName.split(",")) || "").indexOf(fieldName) != -1)
@@ -2802,7 +2802,7 @@
 
                 }
 
-                $(this).siblings(".u-filterbox").val("");
+                $(this).siblings(".bizdatagrid-filterbox").val("");
                 $(this).remove();
             });
 
@@ -2819,17 +2819,17 @@
             if (_canFilterAndSort == false) {
                 return;
             }
-            //if (typeof ($bizDataGrid.attr("u-paginationhandler")) != "undefined")
+            //if (typeof ($bizDataGrid.attr("bizdatagrid-paginationhandler")) != "undefined")
             //    setPage(_currentPage);
 
-            if (typeof ($pager) != "undefined" && _dataSource != null && typeof ($bizDataGrid.attr("u-paginationhandler")) == "undefined") {
+            if (typeof ($pager) != "undefined" && _dataSource != null && typeof ($bizDataGrid.attr("bizdatagrid-paginationhandler")) == "undefined") {
 
                 $body.find("tr").remove();
                 _removedRows = [];
 
 
                 _totalPages = getTotalPages();
-                $pager.find(".u-endButton").show();
+                $pager.find(".bizdatagrid-endButton").show();
                 setPage(1);
             }
             else {
@@ -2865,7 +2865,7 @@
             var filteredData = [];
 
 
-            var fieldPath = $template.find("[u-datafieldname='" + args.fieldName + "']").attr("u-datafieldpath");
+            var fieldPath = $template.find("[bizdatagrid-datafieldname='" + args.fieldName + "']").attr("bizdatagrid-datafieldpath");
             fieldPath = fieldPath && fieldPath.replace("()", "");
 
             for (var i in _dataSource) {
@@ -2887,10 +2887,10 @@
 
 
                 var inputValue;
-                if (typeof (window[$template.find("[u-datafieldname='" + args.fieldName + "']").attr("u-valueconverterhandler")]) == "function") {
+                if (typeof (window[$template.find("[bizdatagrid-datafieldname='" + args.fieldName + "']").attr("bizdatagrid-valueconverterhandler")]) == "function") {
 
                     var argsConverter = { value: itemValue, valueToShow: itemValue, lastValue: null, lastValueToShow: null, objectData: _dataSource[i] }
-                    window[$template.find("[u-datafieldname='" + args.fieldName + "']").attr("u-valueconverterhandler")](null, argsConverter);
+                    window[$template.find("[bizdatagrid-datafieldname='" + args.fieldName + "']").attr("bizdatagrid-valueconverterhandler")](null, argsConverter);
                     inputValue = argsConverter.valueToShow;
                 }
                 if (itemValue.toUpperCase().indexOf((args.filterValue && args.filterValue.toUpperCase()) || "") != -1
@@ -2929,8 +2929,8 @@
             $body = $('<table class="BizDataGridBody" />');
 
             //var $headerRow = $("<tr></tr>");
-            //$headerRow.css("height", $template.attr("u-headerheight"));
-            //$headerRow.css("max-height", $template.attr("u-headerheight"));
+            //$headerRow.css("height", $template.attr("bizdatagrid-headerheight"));
+            //$headerRow.css("max-height", $template.attr("bizdatagrid-headerheight"));
             //$body.css("margin-top", "-" + parseInt($header.find("tr").height(), 10) + "px");
             $body.css("max-height", _options.maxHeight);
 
@@ -2939,7 +2939,7 @@
             //    var $headerColumnTemplate = $(value);
             //    var $headerColumn = $("<td/>");
             //    $headerColumn.attr("style", $headerColumnTemplate.attr("style"));
-            //    $headerColumn.text($headerColumnTemplate.attr("u-headername"));
+            //    $headerColumn.text($headerColumnTemplate.attr("bizdatagrid-headername"));
             //    $headerColumn.css({ maxWidth: $headerColumn.get(0).style.width, minWidth: $headerColumn.get(0).style.width});
 
             //    $headerRow.append($headerColumn);
@@ -2963,23 +2963,23 @@
 
             var imagesPath = $("script[src*='bizDataGrid.js']").attr("src").split('bizDataGrid.js')[0] + "images/";
 
-            $pager = $("<div class='u-pager'></div>")
-            var $buttonContainer = $("<div class='u-pagerButtons'></div>")
+            $pager = $("<div class='bizdatagrid-pager'></div>")
+            var $buttonContainer = $("<div class='bizdatagrid-pagerButtons'></div>")
             var $buttonPrimero = $("<img/>").attr("src", imagesPath + "BtnInicio.png");
             var $buttonAtras = $("<img/>").attr("src", imagesPath + "BtnAtras.png");
             var $buttonSiguiente = $("<img/>").attr("src", imagesPath + "BtnSiguiente.png");
-            var $buttonFin = $("<img class='u-endButton' />").attr("src", imagesPath + "BtnFin.png");
+            var $buttonFin = $("<img class='bizdatagrid-endButton' />").attr("src", imagesPath + "BtnFin.png");
 
             $buttonContainer.append($buttonPrimero.on("click", function () { paginate("first") }));
             $buttonContainer.append($buttonAtras.on("click", function () { paginate("back") }));
-            $buttonContainer.append($("<div class='u-currentPage' readonly='true' >1</div>"));
+            $buttonContainer.append($("<div class='bizdatagrid-currentPage' readonly='true' >1</div>"));
             $buttonContainer.append($buttonSiguiente.on("click", function () { paginate("next") }));
             $buttonContainer.append($buttonFin.on("click", function () { paginate("last") }));
 
             if (that.totalPages() == null)
                 $buttonFin.hide();
 
-            if ($bizDataGrid.attr("u-fillspace") == "true")
+            if ($bizDataGrid.attr("bizdatagrid-fillspace") == "true")
                 $pager.css("width", "100%");
             else
                 $pager.width($header.width());
@@ -2991,17 +2991,17 @@
             AddRegisters();
 
 
-            if (typeof ($bizDataGrid.attr("u-totalpages")) != "undefined")
-                _userDefinedTotalPages = $bizDataGrid.attr("u-totalpages");
+            if (typeof ($bizDataGrid.attr("bizdatagrid-totalpages")) != "undefined")
+                _userDefinedTotalPages = $bizDataGrid.attr("bizdatagrid-totalpages");
 
         }
 
         function AddRegisters() {
 
-            var $registers = $("<div class='u-registers'/>");
-            $registers.append($("<span class='u-registersLbl'>Rows</span>"));
+            var $registers = $("<div class='bizdatagrid-registers'/>");
+            $registers.append($("<span class='bizdatagrid-registersLbl'>Rows</span>"));
 
-            var $registersOptions = $("<select class='u-registersInput' ></select>");
+            var $registersOptions = $("<select class='bizdatagrid-registersInput' ></select>");
             $registersOptions.append($("<option value='5'>5</option>"));
             $registersOptions.append($("<option value='10'>10</option>"));
             $registersOptions.append($("<option selected = 'selected'  value='20'>20</option>"));
@@ -3015,7 +3015,7 @@
 
             $registers.append($registersOptions.on("change", onRegistersChanged));
 
-            $(".u-header-title", $bizDataGrid).append($registers);
+            $(".bizdatagrid-header-title", $bizDataGrid).append($registers);
 
         }
 
@@ -3084,7 +3084,7 @@
         function getTotalPages() {
 
 
-            if (_userDefinedTotalPages == null && typeof ($bizDataGrid.attr("u-paginationhandler")) == "undefined") {
+            if (_userDefinedTotalPages == null && typeof ($bizDataGrid.attr("bizdatagrid-paginationhandler")) == "undefined") {
 
                 var totalPages = parseInt(_totalItems / _paginationSize, 10);
 
@@ -3094,7 +3094,7 @@
                 return totalPages;
             }
 
-            else if (_userDefinedTotalPages == null && typeof ($bizDataGrid.attr("u-paginationhandler") != "undefined"))
+            else if (_userDefinedTotalPages == null && typeof ($bizDataGrid.attr("bizdatagrid-paginationhandler") != "undefined"))
                 return null;
             else if (_userDefinedTotalPages != null)
                 return _userDefinedTotalPages
@@ -3114,9 +3114,9 @@
 
             $body.find("tr").remove();
             _currentPage = page;
-            $pager.find(".u-currentPage").text(page);
+            $pager.find(".bizdatagrid-currentPage").text(page);
 
-            if (typeof (window[$bizDataGrid.attr("u-paginationhandler")]) == "function") {
+            if (typeof (window[$bizDataGrid.attr("bizdatagrid-paginationhandler")]) == "function") {
 
 
 
@@ -3126,13 +3126,13 @@
                     var filterValue = _currentFilter.filterValue
                     var direction = _currentFilter.direction;
 
-                    window[$($bizDataGrid).attr("u-paginationhandler")]({ fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: page, pageSize: _paginationSize,filters:_currentFilter.filters })
+                    window[$($bizDataGrid).attr("bizdatagrid-paginationhandler")]({ fieldName: fieldName, filterValue: filterValue, direction: direction, pageNumber: page, pageSize: _paginationSize,filters:_currentFilter.filters })
                 }
 
 
                 else {
 
-                    window[$($bizDataGrid).attr("u-paginationhandler")]({ fieldName: null, filterValue: null, direction: null, pageNumber: page, pageSize: _paginationSize })
+                    window[$($bizDataGrid).attr("bizdatagrid-paginationhandler")]({ fieldName: null, filterValue: null, direction: null, pageNumber: page, pageSize: _paginationSize })
 
                 }
 
@@ -3159,7 +3159,7 @@
             var dataPage = [];
             var data;
 
-            if ((typeof (window[$bizDataGrid.attr("u-filterhandler")]) != "function" && !!_currentFilter && !!_currentFilter.fieldName && typeof (window[$template.find("[u-filterfieldname='" + _currentFilter.fieldName + "']").attr("u-filterhandler")]) != "function") || !!_currentFilter && !!_currentFilter.fieldName && $template.find("[u-filterfieldname='" + _currentFilter.fieldName + "']").attr("u-filterhandler") == "local")
+            if ((typeof (window[$bizDataGrid.attr("bizdatagrid-filterhandler")]) != "function" && !!_currentFilter && !!_currentFilter.fieldName && typeof (window[$template.find("[bizdatagrid-filterfieldname='" + _currentFilter.fieldName + "']").attr("bizdatagrid-filterhandler")]) != "function") || !!_currentFilter && !!_currentFilter.fieldName && $template.find("[bizdatagrid-filterfieldname='" + _currentFilter.fieldName + "']").attr("bizdatagrid-filterhandler") == "local")
                 data = filterData(_currentFilter);
             else
                 data = _dataSource;
@@ -3339,14 +3339,14 @@
             for (var x = 0; x < _options.columns.length; x++) {
 
                 if (_options.columns[x].visible === false)
-                    $template.find("[u-datafieldname='" + _options.columns[x].fieldName + "']").parent().remove();
+                    $template.find("[bizdatagrid-datafieldname='" + _options.columns[x].fieldName + "']").parent().remove();
             }
 
             var row = $template.clone().css("display", "table-row");
             row = $(row.changeElementType("tr"));
             columns = row.find("bizdatagrid-columntemplate").changeElementType("td");
 
-            //$(columns).find("[u-datafieldname='META']")
+            //$(columns).find("[bizdatagrid-datafieldname='META']")
 
 
             row.html("");
@@ -3468,26 +3468,26 @@
 
            
 
-            var dataFieldInputs = row.find("[u-datafieldname]");
+            var dataFieldInputs = row.find("[bizdatagrid-datafieldname]");
             for (var index = 0; index < dataFieldInputs.length; index++) {
 
 
                 var value = dataFieldInputs[index];
                 var $control = $(value);
 
-                if ($bizDataGrid.attr("u-readonly") == "true")
-                    if ($control.attr("u-readonly") != "false")
+                if ($bizDataGrid.attr("bizdatagrid-readonly") == "true")
+                    if ($control.attr("bizdatagrid-readonly") != "false")
                         $control.attr("disabled", "disabled");
 
 
                 var column = null;
                 var isReadOnly = null;
                 for (var x = 0; x < _options.columns.length; x++) {
-                    if ($control.attr("u-datafieldname") == _options.columns[x].fieldName)
+                    if ($control.attr("bizdatagrid-datafieldname") == _options.columns[x].fieldName)
                         isReadOnly = _options.columns[x].readOnly;
                 }
 
-                if ($control.attr("u-readonly") == "true")
+                if ($control.attr("bizdatagrid-readonly") == "true")
                     $control.attr("disabled", "disabled");
 
                 if (isReadOnly != null) {
@@ -3503,25 +3503,25 @@
                     }
                 }
 
-                if (typeof ($control.attr("u-datasource")) != "undefined") {
+                if (typeof ($control.attr("bizdatagrid-datasource")) != "undefined") {
 
-                    if ($control.attr("u-datasource").indexOf("this") != -1) {
+                    if ($control.attr("bizdatagrid-datasource").indexOf("this") != -1) {
 
-                        var source = row.get(0).dataSource[$control.attr("u-datasource").split("this.")[1]];
-                        applyAutoComplete($control, source, window[$control.attr("u-onCurrentItemChanged")]);
+                        var source = row.get(0).dataSource[$control.attr("bizdatagrid-datasource").split("this.")[1]];
+                        applyAutoComplete($control, source, window[$control.attr("bizdatagrid-onCurrentItemChanged")]);
 
                     }
 
                     else {
 
-                        var source = eval($control.attr("u-datasource"));
-                        applyAutoComplete($control, source, window[$control.attr("u-onCurrentItemChanged")]);
+                        var source = eval($control.attr("bizdatagrid-datasource"));
+                        applyAutoComplete($control, source, window[$control.attr("bizdatagrid-onCurrentItemChanged")]);
 
                     }
                 }
 
 
-                updateControlData($control.attr("u-datafieldname"), $control.parents("tr").get(0).dataSource[$control.attr("u-datafieldname")], $control.parents("tr").get(0).dataSource);
+                updateControlData($control.attr("bizdatagrid-datafieldname"), $control.parents("tr").get(0).dataSource[$control.attr("bizdatagrid-datafieldname")], $control.parents("tr").get(0).dataSource);
 
 
             }
@@ -3533,7 +3533,7 @@
                 that.onRowCollectionChanged(row);
 
             //if (data && data.error) {
-            //    row.addClass("u-rowinerror");
+            //    row.addClass("bizdatagrid-rowinerror");
             //}
 
             $header.css("overflow-x", "hidden");
@@ -3544,7 +3544,7 @@
         function applyConverter(control) {
 
 
-            var converterHandler = window[$(control).attr("u-valueconverterhandler")];
+            var converterHandler = window[$(control).attr("bizdatagrid-valueconverterhandler")];
 
             if (typeof (converterHandler) == "function") {
 
@@ -3564,9 +3564,9 @@
         function getFieldNames() {
 
             var fieldNames = [];
-            $template.find("[u-datafieldname]").each(function (index, value) {
+            $template.find("[bizdatagrid-datafieldname]").each(function (index, value) {
 
-                fieldNames.push($(value).attr("u-datafieldname"));
+                fieldNames.push($(value).attr("bizdatagrid-datafieldname"));
 
             });
 
@@ -4040,7 +4040,7 @@ function cloneObj(object) {
 
     $(document).ready(function () {
 
-        $("[u-autowidth='true']").each(function (index, value) {
+        $("[bizdatagrid-autowidth='true']").each(function (index, value) {
             autoWidth(el);
         });
 

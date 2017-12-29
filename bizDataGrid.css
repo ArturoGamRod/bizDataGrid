@@ -112,7 +112,7 @@ background: rgba(255,255,155,.5); /* Old browsers */
     /*padding-left:10px;*/
 }
 
-.u-header-title
+.bizdatagrid-header-title
 {
     font-size: 12px;
     /*font-size: 17px;*/
@@ -235,7 +235,7 @@ max-width:100% !important;*/
    
 }
 
-.u-filterbox
+.bizdatagrid-filterbox
 {
     display: none;
     color: black;
@@ -246,7 +246,7 @@ max-width:100% !important;*/
 
 }
 
-.u-headerText
+.bizdatagrid-headerText
 {
     overflow: hidden;
     display: inline-block;
@@ -256,7 +256,7 @@ max-width:100% !important;*/
     text-shadow: 1px 1px 0px #fff;
 }
 
-.u-arrows
+.bizdatagrid-arrows
 {
     /*
    position: absolute;
@@ -268,7 +268,7 @@ max-width:100% !important;*/
 }
 
 
-.u-arrowImage
+.bizdatagrid-arrowImage
 {
     cursor: pointer;
     display: block;
@@ -286,7 +286,7 @@ max-width:100% !important;*/
 }
 
 
-.u-pager
+.bizdatagrid-pager
 {
     height: 30px;
     width: 100% !Important;
@@ -313,7 +313,7 @@ max-width:100% !important;*/
 
 }
 
-.u-pagerButtons
+.bizdatagrid-pagerButtons
 {
     display: inline-block;
     height: 100%;
@@ -323,7 +323,7 @@ max-width:100% !important;*/
 }
 
 
-.u-pagerButtons img
+.bizdatagrid-pagerButtons img
 {
     display: inline-block;
     cursor: pointer;
@@ -332,7 +332,7 @@ max-width:100% !important;*/
     height:12px;
    
 }
-/*.u-pagerButtons img:hover
+/*.bizdatagrid-pagerButtons img:hover
 {
     display: inline-block;
     cursor: pointer;
@@ -343,7 +343,7 @@ max-width:100% !important;*/
 }*/
 
 
-.u-currentPage
+.bizdatagrid-currentPage
 {
     color: black;
     display: inline-block;
@@ -354,7 +354,7 @@ max-width:100% !important;*/
     min-width: 20px;
 }
 
-.u-registers {
+.bizdatagrid-registers {
     display: inline-block;
     position: absolute;
     right: 0px;
@@ -365,7 +365,7 @@ max-width:100% !important;*/
 
 }
 
-.u-registersInput
+.bizdatagrid-registersInput
 {
     width: 50px;
     color: black;
@@ -374,7 +374,7 @@ max-width:100% !important;*/
      border-radius: 5px;
 }
 
-.u-errorBox
+.bizdatagrid-errorBox
 {
     position: absolute;
     display: inline-block;
@@ -386,13 +386,13 @@ max-width:100% !important;*/
     z-index: 9998;
 }
 
-.u-upArrow {
+.bizdatagrid-upArrow {
 
      margin-bottom:3px;    
 }
 
 
-.u-cancelFilter {
+.bizdatagrid-cancelFilter {
 
      cursor:pointer;
      display:inline-block;
@@ -401,7 +401,7 @@ max-width:100% !important;*/
 }
 
 
-.u-mainContainer {
+.bizdatagrid-mainContainer {
 
     position: relative;
     width:100%;
@@ -413,7 +413,7 @@ max-width:100% !important;*/
 
 
 
-.BizDataGridBody tr.u-rowinerror {
+.BizDataGridBody tr.bizdatagrid-rowinerror {
     background-color :  rgb(228, 106, 106) !important;
 
 
