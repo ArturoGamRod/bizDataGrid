@@ -2798,6 +2798,7 @@
                 else {
 
                     _currentFilter = { fieldName: null, filterValue: null, direction: null, pageNumber: 1, pageSize: _paginationSize };
+                    _totalItems = dataSource.length;
                     setPage(1);
 
                 }
